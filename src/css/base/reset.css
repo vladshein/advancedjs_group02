@@ -8,23 +8,25 @@ p {
   margin: 0;
 }
 
-p:last-child {
-  margin-bottom: 0;
-}
-
-ul {
-  margin: 0;
+ul,
+ol {
+  list-style-type: none;
   padding: 0;
-  list-style: none;
+  margin: 0;
 }
 
 a {
-  color: currentColor;
   text-decoration: none;
+  color: currentColor;
 }
 
 button {
+  font-family: inherit;
   cursor: pointer;
+}
+
+address {
+  font-style: normal;
 }
 
 img {

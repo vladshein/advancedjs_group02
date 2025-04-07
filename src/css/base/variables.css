@@ -1,0 +1,58 @@
+:root {
+  --primary-font: 'DM Sans', sans-serif;
+
+  /* Colors */
+  /* 
+    rgba(4, 4, 4, 0.4)       - bg color
+    rgba(17, 17, 17, 0.5)    - dark black
+
+    rgba(36, 36, 36, 0.1)    - black
+    rgba(36, 36, 36, 0.5)
+    rgba(36, 36, 36, 0.6)
+    rgba(36, 36, 36, 0.8)
+    rgba(36, 36, 36, 1)      
+
+    rgba(151, 71, 255, 1)    - purple
+
+    rgba(198, 205, 209, 1)   - lavender gray
+    rgba(212, 212, 212, 1)   - light gray
+    
+    rgba(238, 161, 12, 1)    - orange
+    rgba(239, 237, 232, 0.2) - neutral gray
+    
+
+    rgba(244, 244, 244, 0.1) - lighthouse 
+    rgba(244, 244, 244, 0.2)
+    rgba(244, 244, 244, 0.4)
+    rgba(244, 244, 244, 0.6)
+    rgba(244, 244, 244, 1)   
+
+    rgba(255, 255, 255, 1)   - white 
+    */
+
+  --cl-bg-color: 4, 4, 4;
+  --cl-dark-black: 17, 17, 17;
+  --cl-black: 36, 36, 36;
+  --cl-violet: 151, 71, 255;
+  --cl-lavender-gray: 198, 205, 209;
+  --cl-light-gray: 212, 212, 212;
+  --cl-orange: 238, 161, 12;
+  --cl-neutral-gray: 239, 237, 232;
+  --cl-lighthouse: 244, 244, 244;
+  --cl-white: 255, 255, 255;
+
+  /* Position */
+  --header-depth: 1;
+  --backdrop-depth: 99;
+
+  /* Others */
+  --indent-col: 32px;
+  --indent-row: var(--indent-col);
+  --items: 3;
+
+  /* Transitions */
+  --fast-trns: 300ms ease;
+
+  /* Animations */
+  --base-delay: 800ms;
+}

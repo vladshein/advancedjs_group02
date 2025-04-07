@@ -5,14 +5,19 @@
   |============================
 */
 /* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/base.css');
+@import url('./base/container.css');
+@import url('./base/animations.css');
 
 /* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+@import url('./components/header.css');
+@import url('./components/footer.css');
+@import url('./components/hero.css');
+@import url('./components/filter.css');
+@import url('./components/quote.css');
+@import url('./components/category.css');
+@import url('./components/exercise.css');
+@import url('./components/favorite.css');
+@import url('./components/mobile-menu.css');
