@@ -6,8 +6,10 @@
 .footer-container {
   color: rgba(var(--cl-lighthouse), 1);
   background-color: rgba(var(--cl-black), 1);
-  padding: 64px 32px 32px 16px;
+  padding: 64px 32px 16px 32px;
   font-weight: 400;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .footer-top {
@@ -49,6 +51,7 @@
 .footer-socials-item {
   display: flex;
   justify-content: center;
+  padding: 8px;
   align-items: center;
   border-radius: 10px;
   border: 1px solid rgba(var(--cl-lighthouse), 0.1);
@@ -63,39 +66,72 @@
 .socials-icon {
 }
 .footer-socials-icons {
+  flex-shrink: 0;
 }
 .footer-text {
   font-size: 56px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.07;
-  letter-spacing: -2%;
-  max-width: 595px;
+  line-height: 1.07em;
+  letter-spacing: -1.12;
+  width: 595px;
   margin-right: 115px;
+  word-wrap: break-word; /* Allow text wrapping */
 }
 
 .footer-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: start;
   gap: 20px;
-  font-size: 18px;
-  max-width: 345px;
+  width: 352px;
+  color: rgba(var(--cl-lighthouse), 1);
+}
+
+.footer-input {
+  display: flex;
+  justify-content: center;
+  min-width: fit-content;
+  outline: none;
+  width: 100%;
+  padding: 12px 12px 12px 14px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 130%;
+  transition: var(--fast-trns);
+  background-color: rgba(var(--cl-black), 1);
+  border: 1px solid #f4f4f4;
+  border-radius: 30px;
+  color: #f4f4f4;
 }
 
 .footer-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  width: 100%;
 }
+
 .footer-copyright {
   display: flex;
   flex-direction: row;
+  color: rgba(var(--cl-lavender-gray), 0.9);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 128%;
+  letter-spacing: -0.02em;
 }
+
 .footer-rights {
+  margin-right: 122px;
 }
 .footer-privacy {
+  margin-right: 498px;
 }
-.footer-year {
+
+.footer-form-label {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 133%;
+  color: rgba(var(--cl-lighthouse), 1);
 }
