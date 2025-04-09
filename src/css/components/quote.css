@@ -1,0 +1,108 @@
+.quote-section {
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+}
+/* @media only screen and (min-width: 768px) {
+    .quote-section {
+
+    }
+} */
+/* @media only screen and (min-width: 1440px) {
+    .quote-section {
+
+    }
+} */
+.quote-card {
+  position: relative;
+  width: 335px;
+  font-family: var(--primary-font);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.29;
+  letter-spacing: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 72px;
+  border-radius: 20px;
+  color: rgb(244, 244, 244);
+}
+@media only screen and (min-width: 768px) {
+    .quote-card {
+
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .quote-card {
+
+    }
+}
+.quote-card-dark {
+  height: 209px;
+  background-color: rgb(36, 36, 36);
+}
+.quote-icon-wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 25px;
+  background-color: rgb(244, 244, 244, 0.2);
+  fill: rgb(244, 244, 244);
+}
+.quote-icon {
+  position: absolute;
+  top: 6;
+  right: 0;
+  fill: rgb(244, 244, 244);
+}
+.quote-icon-wrap-dark {
+  background-color: rgb(36, 36, 36);
+}
+.quote-card-dark .quote-header {
+  position: relative;
+  margin-bottom: 8px;
+}
+.quote-card-dark .quote-text {
+  color: rgb(244, 244, 244, 0.6);
+  padding-bottom: 16px;
+}
+.quote-card-light {
+  height: 201px;
+  background-color: rgb(255, 255, 255);
+  color: #242424;
+}
+.quote-card-light::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 25px;
+  background-color: rgb(36, 36, 36);
+}
+.quote-card-light .quote-header {
+  margin-bottom: 2px;
+}
+.quote-card-light .quote-subtitle {
+  color: rgb(36, 36, 36, 0.6);
+  margin-bottom: 16px;
+}
+.quote-header {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0em;
+}
+.quote-text-wrap {
+  height: 92px;
+  overflow-y: scroll;
+}
+.quote-img-card {
+  border-radius: 20px;
+  overflow: hidden;
+  width: 335px;
+}
