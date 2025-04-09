@@ -19,3 +19,48 @@ body {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.btn {
+  display: flex;
+  justify-content: center;
+  min-width: fit-content;
+  outline: none;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3em;
+  transition: var(--fast-trns);
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+}
+
+.btn-primary {
+  background-color: rgba(var(--cl-lighthouse));
+  border: 1px solid transparent;
+  color: rgba(var(--cl-black));
+}
+
+.btn-primary:hover {
+  background-color: rgba(var(--cl-black));
+  border: 1px solid rgba(var(--cl-lighthouse));
+  color: rgba(var(--cl-lighthouse));
+}
+
+.btn-secondary {
+  background-color: rgba(var(--cl-black));
+  border: 1px solid rgba(var(--cl-lighthouse));
+  color: rgba(var(--cl-lighthouse));
+}
+
+.btn-secondary:hover {
+  background-color: rgba(var(--cl-lighthouse));
+  border: 1px solid transparent;
+  color: rgba(var(--cl-black));
+}
