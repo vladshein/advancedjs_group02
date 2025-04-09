@@ -19,10 +19,41 @@
     <p class="quote-subtitle">Tom Brady</p>
   </div>
   <div class="quote-img-card">
-    <img
-      src="../images/quote/quote_mobile.jpg"
-      alt="Two girls drinking water from bottles"
-    />
+    <picture>
+      <source
+        media="(min-width: 1440px)"
+        srcset="
+          ../images/quote/quote_desktop.jpg    1x,
+          ../images/quote/quote_desktop@2x.jpg 2x
+        "
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="
+          ../images/quote/quote_tablet.jpg    1x,
+          ../images/quote/quote_tablet@2x.jpg 2x
+        "
+      />
+      <source
+        media="(max-width: 767px)"
+        srcset="
+          ../images/quote/quote_mobile.jpg    1x,
+          ../images/quote/quote_mobile@2x.jpg 2x
+        "
+      />
+      <source
+        media="(max-width: 767px)"
+        srcset="
+          ../images/quote/quote_tablet.jpg 1x,
+          ../images/quote/quote_tablet.jpg 2x
+        "
+      />
+      <img
+        class=""
+        src="../images/quote/quote_tablet.jpg"
+        alt="Two girls drinking water from bottles"
+      />
+    </picture>
   </div>
   <div class="quote-card quote-card-light">
     <h3 class="quote-header">110 min</h3>
