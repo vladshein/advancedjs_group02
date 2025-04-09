@@ -1,0 +1,180 @@
+.quote-section {
+  display: grid;
+  grid-template-columns: 335px;
+  justify-content: center;
+  gap: 20px;
+}
+@media only screen and (min-width: 768px) {
+    .quote-section {
+        grid-template-columns:  400px 288px;
+        gap: 32px 16px;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .quote-section {
+        grid-template-columns: 444px;
+        gap: 32px;
+    }
+}
+.quote-card {
+  position: relative;
+  width: 335px;
+  height: 209px;
+  font-family: var(--primary-font);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.29;
+  letter-spacing: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 72px;
+  border-radius: 20px;
+  color: rgb(244, 244, 244);
+  background-color: rgb(36, 36, 36);
+}
+@media only screen and (min-width: 768px) {
+  .quote-card {
+    width: 400px;
+    height: 249px;
+    padding: 40px 40px 40px 90px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .quote-card {
+    width: 444px;
+    height: 242px;
+  }
+}
+
+.quote-icon-wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 20px;
+  width: 34px;
+  height: 32px;
+  border-radius: 25px;
+  background-color: rgb(244, 244, 244, 0.2);
+  fill: rgb(244, 244, 244);
+}
+@media only screen and (min-width: 768px) {
+  .quote-icon-wrap {
+    left: 40px;
+  }
+}
+
+.quote-icon {
+  position: absolute;
+  top: 6;
+  right: 0;
+  fill: rgb(244, 244, 244);
+}
+@media only screen and (min-width: 768px) {
+  .quote-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.quote-icon-wrap-dark {
+  background-color: rgb(36, 36, 36);
+}
+.quote-header {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0em;
+}
+@media only screen and (min-width: 768px) {
+  .quote-header {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+.quote-card-dark .quote-header {
+  position: relative;
+  margin-bottom: 8px;
+}
+@media only screen and (min-width: 768px) {
+  .quote-card-dark .quote-header {
+    margin-bottom: 6px;
+  }
+}
+.quote-card-dark .quote-text {
+  color: rgb(244, 244, 244, 0.6);
+  margin-bottom: 16px;
+  height: 107px;
+  overflow-y: scroll;
+}
+@media only screen and (min-width: 768px) {
+  .quote-card-dark .quote-text {
+    margin-bottom: 18px;
+    height: 89px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .quote-card-dark .quote-text {
+    margin-bottom: 8px;
+    height: 92px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .quote-card-dark .quote-subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.quote-card-light {
+  
+  background-color: rgb(255, 255, 255);
+  color: #242424;
+}
+@media only screen and (max-width: 767px) {
+  .quote-card-light {
+    height: 201px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .quote-card-light {
+    height: 315px;
+  }
+}
+.quote-card-light .quote-header {
+  margin-bottom: 2px;
+}
+.quote-card-light .quote-subtitle {
+  color: rgb(36, 36, 36, 0.6);
+  margin-bottom: 16px;
+}
+@media only screen and (min-width: 768px) {
+  .quote-card-light .quote-subtitle {
+    margin-bottom: 20px;
+  }
+}
+.quote-text-wrap {
+  height: 92px;
+  overflow-y: scroll;
+}
+@media only screen and (min-width: 1440px) {
+  .quote-text-wrap {
+    height: 163px;
+  }
+}
+.quote-img-card {
+  border-radius: 20px;
+  overflow: hidden;
+  width: 335px;
+}
+@media only screen and (min-width: 768px) {
+  .quote-img-card {
+    width: 288px;
+    height: 249px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .quote-img-card {
+    width: 444px;
+    height: 249px;
+  }
+}
