@@ -1,0 +1,74 @@
+.exercise-container {
+    padding: 16px 16px;
+    background-color: rgb(var(--cl-white));
+    border-radius: 15px;
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: start;
+    gap: 17px;
+    align-items: baseline;
+    margin-bottom: 25px;
+}
+
+.exercise-header-badge {
+    display: inline-flex;
+    padding: 5px 8px;
+    border-radius: 15px;
+    border: 1px solid rgb(24, 24, 24);
+
+}
+
+.exercise-header-rating {
+    display: inline-flex;
+    gap: 2px;
+    flex-grow: 1;
+}
+
+.exercise-rating-icon {
+    fill: rgb(var(--cl-orange))
+}
+
+.exercise-header-button {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    gap: 8px;
+}
+
+.exercise-btn-icon {
+    stroke: black;
+}
+
+.exercise-title {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.exercise-title-icon-tumb {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(var(--cl-black));
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+.exercise-title-text {
+    display: inline-flex;
+}
+
+.exercise-title-icon {
+    fill: rgb(var(--cl-lighthouse));
+}
+
+.exercise-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+}
