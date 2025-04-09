@@ -41,8 +41,6 @@
   flex-shrink: 0;
   fill: rgba(var(--cl-lighthouse), 1);
 }
-.footer-socials {
-}
 
 .footer-socials-list {
   display: flex;
@@ -57,16 +55,13 @@
   border: 1px solid rgba(var(--cl-lighthouse), 0.1);
 }
 
-.socials-link {
-}
-
 .footer-icon-link {
 }
 
-.socials-icon {
-}
 .footer-socials-icons {
   flex-shrink: 0;
+  width: 28px;
+  height: 28px;
 }
 .footer-text {
   font-size: 56px;
