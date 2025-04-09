@@ -1,19 +1,29 @@
+.exercise-container {
+}
+
 .exercise-list {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .exercise-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    column-gap: 16px;
+  }
 }
 
 .exercise-item {
-  margin-bottom: 20px;
-}
-
-.exercise-container {
+  background-color: rgb(var(--cl-white));
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   padding: 16px 16px;
-  background-color: rgb(var(--cl-white));
   border-radius: 15px;
 }
 
@@ -55,10 +65,14 @@
   gap: 8px;
 }
 
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .exercise-header-button {
+    font-size: 16px;
+  }
+}
+
 .exercise-btn-icon {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
   stroke: black;
 }
 
@@ -67,6 +81,13 @@
   align-items: baseline;
   gap: 16px;
   margin-bottom: 16px;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .exercise-title {
+    font-size: 24px;
+  }
 }
 
 .exercise-title-icon-tumb {
