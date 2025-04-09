@@ -1,0 +1,67 @@
+@media only screen and (min-width: 1440px) {
+  .exercises-section {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.exercises-header {
+  font-family: var(--primary-font);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.36;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 768px) {
+  .exercises-header {
+    font-size: 44px;
+    line-height: 1.09;
+    margin-bottom: 32px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .exercises-header {
+    margin-bottom: 0;
+  }
+}
+.filter-btns-list {
+  display: flex;
+  gap: 20px;
+}
+.filter-btn {
+  display: block;
+  font-family: var(--primary-font);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.43;
+  letter-spacing: 0;
+  color: rgb(var(--cl-black), 0.6);
+  background-color: inherit;
+  border: none;
+  outline: none;
+  padding: 0;
+  transition: color var(--fast-trns);
+}
+@media only screen and (min-width: 768px) {
+  .filter-btn {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+.filter-btn:hover {
+    color: rgb(var(--cl-black));;
+}
+.active-filter-btn {
+  position: relative;
+  color: rgb(var(--cl-black));
+}
+.active-filter-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  background-color: rgb(var(--cl-black));
+  border-radius: 2px;
+  height: 4px;
+  width: 100%;
+}
