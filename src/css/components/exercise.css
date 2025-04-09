@@ -1,4 +1,4 @@
-.exercise-container {
+.exercise {
 }
 
 .exercise-list {
@@ -27,6 +27,11 @@
   border-radius: 15px;
 }
 
+@media only screen and (min-width: 768px) {
+  .exercise-item {
+    flex-basis: calc((100% - 16px) / 2);
+  }
+}
 .exercise-header {
   display: flex;
   justify-content: space-between;
@@ -122,4 +127,8 @@
   color: rgba(var(--cl-black), 0.4);
   font-feature-settings: 'liga' off, 'clig' off;
   line-height: 1.5;
+}
+
+.active {
+  display: block;
 }
