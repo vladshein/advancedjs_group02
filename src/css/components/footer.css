@@ -1,6 +1,7 @@
 @import url(../base/variables.css);
 
 .footer {
+  background-color: rgba(var(--cl-black), 1);
   color: rgba(var(--cl-lighthouse), 1);
   font-weight: 400;
   margin-top: 40px;
@@ -22,7 +23,6 @@
 
 /* mobile */
 .footer-container {
-  background-color: rgba(var(--cl-black), 1);
   padding: 40px 20px 10px 20px;
   min-width: 335px;
   max-width: 375px;
