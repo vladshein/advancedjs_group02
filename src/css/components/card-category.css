@@ -67,10 +67,11 @@
   z-index: 1;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1440px) {
   .categories-grid {
     width: 705px;
     height: 992px;
+    margin: 32px auto 0;
   }
 
   .category-card {
@@ -85,6 +86,7 @@
     height: auto;
     grid-template-columns: 1fr;
     gap: 24px;
+    margin: 32px auto 0;
   }
 
   .category-card {
@@ -112,6 +114,8 @@
   line-height: 32px;
   font-size: 24px;
   color: #d4d4d4;
+  border: none;
+  background-color: transparent;
 }
 
 .page-number.active {
@@ -124,11 +128,13 @@
 @media screen and (max-width: 1024px) {
   .category-page-wrapper {
     width: 705px;
+    margin: 32px auto 0;
   }
 }
 
 @media screen and (max-width: 768px) {
   .category-page-wrapper {
     width: 335px;
+    margin: 32px auto 0;
   }
 }
