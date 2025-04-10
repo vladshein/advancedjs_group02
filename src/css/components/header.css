@@ -1,0 +1,235 @@
+.header {
+  padding: 24px 0;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  fill: rgb(var(--cl-black));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav-list {
+  display: none;
+}
+
+.nav-item {
+  background-color: transparent;
+  transition: background-color var(--fast-trns), transform var(--fast-trns);
+}
+
+.nav-item.js-nav-item-active {
+  padding: 6px 12px;
+  border-radius: 30px;
+  background: rgb(var(--cl-lighthouse));
+}
+
+.nav-link {
+  color: rgb(var(--cl-lighthouse));
+  transition: color var(--fast-trns), background-color var(--fast-trns);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.nav-link.js-nav-link-active {
+  color: rgb(var(--cl-black));
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.social-media {
+  display: none;
+}
+
+.icons-list {
+  gap: 12px;
+  display: flex;
+  flex-direction: row;
+}
+
+.media-icons {
+  width: 40px;
+  height: 40px;
+}
+
+.media-links {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(var(--cl-black), 0.1);
+  fill: rgba(var(--cl-black), 0.8);
+  background: transparent;
+  transition: fill var(--fast-trns), background var(--fast-trns);
+}
+
+.media-links:hover,
+.media-links:focus {
+  fill: rgb(var(--cl-lighthouse));
+  background: rgba(var(--cl-black), 0.8);
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--backdrop-depth);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--fast-trns), visibility var(--fast-trns);
+}
+
+.mobile-menu-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  max-width: 300px;
+  height: 100%;
+  background-color: rgb(var(--cl-black));
+  padding: 20px;
+  transform: translateX(100%);
+  transition: transform var(--fast-trns);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu-backdrop.is-open .mobile-menu {
+  transform: translateX(0);
+}
+
+.close-btn-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  fill: rgb(var(--cl-lighthouse));
+}
+
+.backdrop-list-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu-item {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+.menu-link {
+  color: rgb(var(--cl-lighthouse));
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color var(--fast-trns);
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+  color: rgba(var(--cl-lighthouse), 0.8);
+}
+
+.backdrop-social-media {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.backdrop-icons-list {
+  display: flex;
+  gap: 12px;
+}
+
+.backdrop-media-icons {
+  width: 40px;
+  height: 40px;
+}
+
+.backdrop-media-links {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(var(--cl-lighthouse), 0.3);
+  fill: rgb(var(--cl-lighthouse));
+  background: transparent;
+  transition: all var(--fast-trns);
+}
+
+.backdrop-media-links:hover,
+.backdrop-media-links:focus {
+  fill: rgb(var(--cl-black));
+  background: rgb(var(--cl-lighthouse));
+}
+
+@media (min-width: 768px) {
+  .header-nav-list {
+    width: 233px;
+    height: 52px;
+    border-radius: 60px;
+    background: rgb(var(--cl-black));
+    gap: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .social-media {
+    display: flex;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header {
+    padding: 28px 0;
+  }
+
+  .header-nav-list {
+    width: 265px;
+  }
+}
