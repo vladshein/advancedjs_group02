@@ -1,0 +1,135 @@
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .exercise-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    column-gap: 16px;
+  }
+}
+
+.exercise-item {
+  background-color: rgb(var(--cl-white));
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  max-width: 335px;
+  padding: 16px 16px;
+  border-radius: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .exercise-item {
+    max-width: 344px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .exercise-item {
+    max-width: 442px;
+  }
+}
+
+.exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 25px;
+}
+
+.exercise-header-badge {
+  display: inline-flex;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 5px 8px;
+  border-radius: 15px;
+  border: 1px solid rgb(24, 24, 24);
+}
+
+.exercise-header-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-grow: 1;
+}
+
+.exercise-rating-icon {
+  fill: rgb(var(--cl-orange));
+}
+
+.exercise-header-button {
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.28;
+  display: flex;
+  border: none;
+  background-color: transparent;
+  gap: 8px;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .exercise-header-button {
+    font-size: 16px;
+  }
+}
+
+.exercise-btn-icon {
+  stroke: black;
+}
+
+.exercise-title {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .exercise-title {
+    font-size: 24px;
+  }
+}
+
+.exercise-title-icon-tumb {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(var(--cl-black));
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.exercise-title-text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  display: inline-flex;
+}
+
+.exercise-title-icon {
+  fill: rgb(var(--cl-lighthouse));
+}
+
+.exercise-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.exercise-footer-item-accent {
+  color: rgba(var(--cl-black), 0.4);
+  font-feature-settings: 'liga' off, 'clig' off;
+  line-height: 1.5;
+}
