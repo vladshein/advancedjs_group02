@@ -1,0 +1,3 @@
+class SubscriptionsService {}
+
+export { SubscriptionsService}
