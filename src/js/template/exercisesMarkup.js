@@ -1,5 +1,3 @@
-import iziToast from 'izitoast';
-
 function exerciseCreateMarkup(exercises) {
   return exercises
     .map(
@@ -62,3 +60,5 @@ function exerciseCreateMarkup(exercises) {
     )
     .join('');
 }
+
+export { exerciseCreateMarkup };
