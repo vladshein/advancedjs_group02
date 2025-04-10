@@ -1,6 +1,80 @@
-<section class="exersice">
-  <div class="exercise-container">
-    <ul class="exercise-list"></ul>
+<!-- Add is-open class to modal overlay for testing -->
+
+<div class="modal-overlay">
+  <div class="container">
+    <div class="modal exercise-card">
+      <button class="close-modal-btn">
+        <svg class="close-modal-icon">
+          <use href="./images/icons.svg#close"></use>
+        </svg>
+      </button>
+      <div class="gif-wrapper">
+        <img
+          class="exercise-gif"
+          src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif"
+          alt="alt text from backend here"
+        />
+      </div>
+      <div class="exercise-overview">
+        <div>
+          <h2 class="exercise-title">Air bike</h2>
+          <div class="exercise-rating-block">
+            <p class="exercise-rating">4.0</p>
+            <svg class="exercise-rating-icon rated">
+              <use href="./images/icons.svg#star"></use>
+            </svg>
+            <svg class="exercise-rating-icon rated">
+              <use href="./images/icons.svg#star"></use>
+            </svg>
+            <svg class="exercise-rating-icon rated">
+              <use href="./images/icons.svg#star"></use>
+            </svg>
+            <svg class="exercise-rating-icon rated">
+              <use href="./images/icons.svg#star"></use>
+            </svg>
+            <svg class="exercise-rating-icon">
+              <use href="./images/icons.svg#star"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="exercise-info-block">
+          <div class="exercise-info">
+            <p class="info-title">Target</p>
+            <p class="info-descr">abs</p>
+          </div>
+          <div class="exercise-info">
+            <p class="info-title">Body Part</p>
+            <p class="info-descr">Waist</p>
+          </div>
+          <div class="exercise-info">
+            <p class="info-title">Equipment</p>
+            <p class="info-descr">Body weight</p>
+          </div>
+          <div class="exercise-info">
+            <p class="info-title">Popular</p>
+            <p class="info-descr">150</p>
+          </div>
+          <div class="exercise-info">
+            <p class="info-title">Burned Calories</p>
+            <p class="info-descr">323/3min</p>
+          </div>
+        </div>
+        <div class="exercise-descr">
+          This refers to your core muscles, which include the rectus abdominis,
+          obliques, and transverse abdominis. They're essential for maintaining
+          posture, stability, and generating force in many movements. Exercises
+          that target the abs include crunches, leg raises, and planks.
+        </div>
+        <div class="buttons-block">
+          <button class="btn btn-primary">
+            Add to favorites
+            <svg class="btn-icon">
+              <use href="./images/icons.svg#heart"></use>
+            </svg>
+          </button>
+          <button class="btn btn-secondary">Give a rating</button>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
-<script type="module" src="./js/partials_js/exercise.js"></script>
+</div>
