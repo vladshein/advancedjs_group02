@@ -1,3 +1,19 @@
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .exercise-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    column-gap: 16px;
+  }
+}
+
 .exercise-item {
   background-color: rgb(var(--cl-white));
   font-size: 12px;
