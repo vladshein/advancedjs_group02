@@ -109,10 +109,13 @@ async function handleSearch(event) {
 
 async function handleCategoryClick(event) {
     event.preventDefault();
+    refs.searchForm.classList.add('active-search-form');
+    // refs.categories.classList.add('hidden');
     // скидання попередніх станів перед повторним запитом
     refs.exercisePageWrapper.innerHTML = '';
     refs.exercises.innerHTML = '';
     queryParams.page = 1;
+    queryParams.keyword = '';
     if (event.target === event.currentTarget) {
         return;
     }

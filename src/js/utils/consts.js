@@ -4,7 +4,7 @@ const queryParams = {
     page: 1,
     maxPage: 1,
     keyword: '',
-    category_type: 'bodypart',
+    category_type: 'muscles',
     category_name: 'waist',
 };
 

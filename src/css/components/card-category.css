@@ -152,3 +152,7 @@
     margin: 32px auto 0;
   }
 }
+
+.hidden {
+  display: none;
+}
