@@ -1,0 +1,93 @@
+.favorite_container-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.36;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .favorite_container-title {        
+        font-size: 44px;
+        line-height: 1.09;
+        margin-bottom: 32px;
+    }
+}
+
+.favorite_container-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+    .favorite_container-flex {        
+        gap: 64px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .favorite_container-flex { 
+        flex-direction: row;
+        justify-content: center;    
+        gap: 64px;
+    }
+}
+
+.quote_total_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .quote_total_container {        
+        gap: 16px;
+    }
+}
+
+.sports_norm_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .sports_norm_container{
+        flex-direction: row;        
+        gap: 16px;
+    }
+}
+
+.favorite_exercise_containers {
+    padding: 0 28px 46px 29px;
+}
+
+@media only screen and (min-width: 768px) {
+    .favorite_exercise_containers {        
+        padding: 132px 75px 187px 107px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .favorite_exercise_containers {        
+        padding: 114px 180px 44px 180px;
+    }
+}
+
+.favorite_not_found {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: center;
+    min-width: 318px;
+}
+
+@media only screen and (min-width: 768px) {
+    .favorite_not_found { 
+        background: var(--cl-white);       
+        min-width: 554px;
+    }
+}
