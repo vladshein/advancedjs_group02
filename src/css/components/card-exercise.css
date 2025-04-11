@@ -27,13 +27,13 @@
 
 @media only screen and (min-width: 768px) {
   .exercise-item {
-    max-width: 344px;
+    width: 344px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .exercise-item {
-    max-width: 442px;
+    width: 442px;
   }
 }
 
@@ -132,4 +132,13 @@
   color: rgba(var(--cl-black), 0.4);
   font-feature-settings: 'liga' off, 'clig' off;
   line-height: 1.5;
+}
+
+.exercise-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 32px 0 auto;
+  width: 900px;
+  margin-left: auto;
 }
