@@ -8,7 +8,6 @@ const refs = {
   filterBtnsList: document.querySelector('.filter-btns-list'),
   filterBtns: document.querySelectorAll('.js-filter-btn'),
   categories: document.querySelector('#categories-container'),
-
+  footerForm: document.querySelector('.footer-form'),
 };
-
 export { refs };
