@@ -19,12 +19,10 @@ async function handlePageClick(event) {
     }
 
     // refs.loader.classList.add(ACTIVE_CLASS);
-
     try {
         const exercises = await exerciseService.getExercisesWithParams(queryParams);
 
         // refs.loader.classList.remove(ACTIVE_CLASS);
-
         queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
 
         if (exercises.results.length === 0) {
@@ -32,13 +30,13 @@ async function handlePageClick(event) {
             //   refs.notFoundText.innerHTML = 'Нема вправ за цим ключовим словом';
         }
         refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
-        console.log(queryParams.maxPage);
+
         // якщо за перший запит ми отримали всі обʼєкти колекції - не показуємо пагінацію
         if (queryParams.maxPage === 1) {
             return;
         }
 
-        // тут має бути пагінація
+        // пагінація
         renderPagination(
             queryParams.page,
             queryParams.maxPage
@@ -57,15 +55,8 @@ async function handleSearch(event) {
     // скидання попередніх станів перед повторним запитом
     refs.exercisePageWrapper.innerHTML = '';
     refs.exercises.innerHTML = '';
+    queryParams.page = 1;
     // refs.notFoundText.innerHTML = '';
-    // queryParams = {
-    //   page: 1,
-    //   limit: 8,
-    //   maxPage: 1,
-    //   keyword: '',
-    //   category_type: 'bodypart',
-    //   category_name: 'waist',
-    // };
 
     const width = window.innerWidth;
     if (width >= 768) {
@@ -78,8 +69,6 @@ async function handleSearch(event) {
     const form = event.currentTarget;
     const userQuery = form.elements.query.value.trim();
     if (userQuery === '') {
-        refs.exercises.innerHTML = '';
-        refs.exercisePageWrapper.innerHTML = '';
         showErrorToast('Please entered your request');
         return;
     }
@@ -118,4 +107,59 @@ async function handleSearch(event) {
     }
 }
 
-export { handleSearch, handlePageClick };
+async function handleCategoryClick(event) {
+    event.preventDefault();
+    // скидання попередніх станів перед повторним запитом
+    refs.exercisePageWrapper.innerHTML = '';
+    refs.exercises.innerHTML = '';
+    queryParams.page = 1;
+    if (event.target === event.currentTarget) {
+        return;
+    }
+
+    // refs.notFoundText.innerHTML = '';
+    const width = window.innerWidth;
+    if (width >= 768) {
+        queryParams.limit = 10;
+    }
+    else {
+        queryParams.limit = 8;
+    }
+
+    // refs.loader.classList.add(ACTIVE_CLASS);
+    queryParams.category_name = event.target.querySelector('.category-name').textContent.toLowerCase();
+    queryParams.category_type = event.target.querySelector('.category-type').textContent.toLowerCase();
+    console.log(queryParams.category_name, queryParams.category_type);
+
+    try {
+        const exercises = await exerciseService.getExercisesWithParams(queryParams);
+
+        // refs.loader.classList.remove(ACTIVE_CLASS);
+
+        queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
+
+        if (exercises.results.length === 0) {
+            refs.exercises.innerHTML = '';
+            //   refs.notFoundText.innerHTML = 'Нема вправ за цим ключовим словом';
+        }
+        refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
+        // якщо за перший запит ми отримали всі обʼєкти колекції - не показуємо пагінацію
+        if (queryParams.maxPage === 1) {
+            return;
+        }
+
+        // тут має бути пагінація
+        renderPagination(
+            queryParams.page,
+            queryParams.maxPage
+        );
+
+    } catch (err) {
+        // refs.loader.classList.remove(ACTIVE_CLASS);
+        console.log(err);
+    } finally {
+    }
+}
+
+
+export { handleSearch, handlePageClick, handleCategoryClick };

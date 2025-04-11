@@ -5,6 +5,8 @@ const refs = {
   exercisePageWrapper: document.querySelector('.exercise-page-wrapper'),
   searchForm: document.querySelector('.search-form'),
   qouteWrap: document.querySelector('.quote-wrap'),
+  categories: document.querySelector('#categories-container'),
+
 };
 
 export { refs };
