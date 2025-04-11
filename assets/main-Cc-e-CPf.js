@@ -65,4 +65,4 @@ var Q=Object.defineProperty;var k=(t,e,r)=>e in t?Q(t,e,{enumerable:!0,configura
         ${e}
       </p>
       <p class="quote-subtitle">${t}</p>`}async function Y(){try{const t=E.getQuoteDataFromLS();if(!t||Date.now()!==t.currentDate){const e=await E.getQuote();E.setQuoteDataToLS(e),o.qouteWrap.insertAdjacentHTML("beforeend",H(e))}else o.qouteWrap.insertAdjacentHTML("beforeend",H(t.quote))}catch(t){S(t.message)}}function _(t){o.filterBtns.forEach(e=>{e.classList.remove("active-filter-btn")}),t.target.nodeName==="BUTTON"&&(t.target.classList.add("active-filter-btn"),C.setFilterQuery(t.target.textContent.trim()),O())}async function J(t){t.preventDefault(),P.getFormData(),P.verifyData()&&P.postEmail()}o.searchForm.addEventListener("submit",z);Y();o.filterBtnsList.addEventListener("click",_);o.footerForm.addEventListener("submit",J);o.categories.addEventListener("click",K);
-//# sourceMappingURL=main-C--rJM3n.js.map
+//# sourceMappingURL=main-Cc-e-CPf.js.map
