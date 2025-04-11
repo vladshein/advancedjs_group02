@@ -12,21 +12,22 @@ class FiltersService {
   setFilterQuery(value) {
     FiltersService.filterQuery = value;
   }
-    
-    async fetchFilteredData(limit) {
-        const axiosOptions = {
-          params: {
-            filter: this.getFilterQuery(),
-            limit: limit,
-            page: 1,
-          },
-        };
-        const { filteredData } = await axios.get(
-          `${API_URL}/filters/`,
-          axiosOptions
-        );
-        return filteredData;
-    }
+  // метод робить запит відповідно до обраного фільтру і 
+  // повертає відфільтровані дані для подальшого використання
+  async fetchFilteredData(limit = 12, page = 1) {
+    const axiosOptions = {
+      params: {
+        filter: this.getFilterQuery(),
+        limit: limit,
+        page: page,
+      },
+    };
+    const { filteredData } = await axios.get(
+      `${API_URL}/filters/`,
+      axiosOptions
+    );
+    return filteredData;
+  }
 }
 
 export { FiltersService };
