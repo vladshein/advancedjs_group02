@@ -11,6 +11,11 @@ function onFilterBtnClick(event) {
       return;
     }
     event.target.classList.add('active-filter-btn');
+    refs.searchForm.classList.remove('active-search-form');
+    refs.cardContainer.classList.remove('hidden');
+    refs.exerciseContainer.classList.add('hidden');
+
+    refs.exercisesHeader.innerHTML = 'Exercises';
 
   filtersService.setFilterQuery(event.target.textContent.trim());
   loadCategories();
