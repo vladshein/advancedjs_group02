@@ -19,9 +19,9 @@ function renderModal({
   equipment,
 }) {
   return `<div class="container">
-    <div data-id=${id} class="modal exercise-modal-card">
-      <button class="close-exercise-modal-btn">
-        <svg class="close-exercise-modal-icon">
+    <div data-id=${id} class="exercise-modal-card">
+      <button class="close-modal-btn">
+        <svg class="close-modal-icon">
           <use href="./images/icons.svg#close"></use>
         </svg>
       </button>
@@ -123,9 +123,15 @@ function handleAddFavorite(id) {
   }
 }
 
-refs.openExerciseModalBtn.addEventListener('click', event => {
+const open = document.querySelector('#open');
+
+open.addEventListener('click', event => {
   handleOpenExerciseModal(id);
 });
+
+// refs.openExerciseModalBtn.addEventListener('click', event => {
+//   handleOpenExerciseModal(id);
+// });
 
 document.addEventListener('click', event => {
   if (refs.exerciseModal) {
@@ -137,6 +143,10 @@ document.addEventListener('click', event => {
     }
     if (event.target.closest('#add-to-favorites')) {
       handleAddFavorite(id);
+    }
+    if (event.target.closest('#give-rating')) {
+      refs.exerciseModal.classList.remove('is-open');
+      refs.giveRatingModal.classList.add('is-open');
     }
   }
 });
