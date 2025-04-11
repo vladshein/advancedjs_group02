@@ -1,40 +1,46 @@
 import axios from 'axios';
 import { API_URL } from '../utils/consts.js';
 import { showErrorToast } from '../utils/utils.js';
+import { filtersService, paginationService } from './services.js';
 
 document.addEventListener('DOMContentLoaded', loadCategories);
 
 async function loadCategories() {
   const categoriesContainer = document.getElementById('categories-container');
 
+  const filterRequest = filtersService.getFilterQuery();
   const limit = window.innerWidth < 768 ? 9 : 12;
+  const currentPage = paginationService.getCurrentPage();
   try {
-    const page1 = await axios.get(`${API_URL}/filters`, {
-      params: {
-        filter: 'Muscles',
-        page: 1,
-        limit: 12,
-      },
-    });
+  
+    const filteredCategories = await filtersService.fetchFilteredData(
+      filterRequest,
+      limit,
+      currentPage
+    );
+  
+    // const page1 = await filtersService.fetchFilteredData(
+    //   filterRequest,
+    //   limit,
+    //   currentPage
+    // );
 
-    const page2 = await axios.get(`${API_URL}/filters`, {
-      params: {
-        filter: 'Muscles',
-        page: 2,
-        limit: 12,
-      },
-    });
+    // const page2 = await filtersService.fetchFilteredData(
+    //   filterRequest,
+    //   limit,
+    //   currentPage
+    // );
 
-    const combinedResults = page1.data.results.concat(page2.data.results);
+    // const combinedResults = page1.data.results.concat(page2.data.results);
 
-    const sortedResults = combinedResults.sort(function (a, b) {
+    const sortedResults = filteredCategories.results.sort(function (a, b) {
       return a.name.localeCompare(b.name);
     });
 
-    const limitedResults = sortedResults.slice(0, limit);
+    // const limitedResults = sortedResults.slice(0, limit);
 
     categoriesContainer.innerHTML = '';
-    limitedResults.forEach(function (category) {
+    sortedResults.forEach(function (category) {
       const categoryCard = document.createElement('div');
       categoryCard.className = 'category-card';
 
@@ -58,3 +64,5 @@ async function loadCategories() {
     );
   }
 }
+
+export { loadCategories };
