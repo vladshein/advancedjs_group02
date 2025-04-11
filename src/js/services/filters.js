@@ -5,28 +5,29 @@ class FiltersService {
   static filterQuery = '';
 
   // метод що повертає значення обраної категорії після натискання на кнопку
-  getFilterQuery() {
-    return FiltersService.filterQuery;
+    getFilterQuery() {
+        if (FiltersService.filterQuery === '') {
+          return 'Muscles';
+      } return FiltersService.filterQuery;
   }
   // метод що зберігає значення обраного фільтру  після натискання на кнопку
   setFilterQuery(value) {
     FiltersService.filterQuery = value;
   }
-  // метод робить запит відповідно до обраного фільтру і 
+  // метод робить запит відповідно до обраного фільтру і
   // повертає відфільтровані дані для подальшого використання
-  async fetchFilteredData(limit = 12, page = 1) {
+  async fetchFilteredData(filter, limit, page) {
     const axiosOptions = {
-      params: {
-        filter: this.getFilterQuery(),
-        limit: limit,
-        page: page,
-      },
+      filter,
+      limit,
+      page,
     };
-    const { filteredData } = await axios.get(
-      `${API_URL}/filters/`,
-      axiosOptions
-    );
-    return filteredData;
+    // const filteredData = await axios.get(`${API_URL}/filters`, axiosOptions
+    // );
+    const filteredData = await axios.get(`${API_URL}/filters`, {
+      params: axiosOptions,
+    });
+    return filteredData.data;
   }
 }
 
