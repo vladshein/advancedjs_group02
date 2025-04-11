@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../utils/consts.js';
-import { showErrorToast } from '../utils/utils.js';
+import { showErrorToast, showSuccessToast } from '../utils/utils.js';
 
 class SubscriptionsService {
   email = '';
@@ -11,6 +11,7 @@ class SubscriptionsService {
   verifyData() {
     console.log(this.email);
     const emailPattern = /^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
     if (!emailPattern.test(this.email)) {
       console.log(this.email);
       // add iziToast error
@@ -29,6 +30,7 @@ class SubscriptionsService {
       showErrorToast('Subscription failed.');
       return;
     }
+    showSuccessToast('Email address added to subscriptions.');
   }
 }
 
