@@ -6,6 +6,7 @@ const refs = {
   qouteWrap: document.querySelector('.quote-wrap'),
   filterBtnsList: document.querySelector('.filter-btns-list'),
   filterBtns: document.querySelectorAll('.js-filter-btn'),
+  footerForm: document.querySelector('.footer-form'),
 };
 
 export { refs };
