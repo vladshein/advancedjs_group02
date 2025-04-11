@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/advancedjs_group02/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Common styles -->
+    <title>Favorites</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/svg+xml" />
+  <script type="module" crossorigin src="/advancedjs_group02/assets/vendor-BUg1UuD4.js"></script>
+  <script type="module" crossorigin src="/advancedjs_group02/assets/main-Bab_rDHI.js"></script>
+  <link rel="stylesheet" crossorigin href="/advancedjs_group02/assets/main-BWjocnl6.css">
+  <link rel="stylesheet" crossorigin href="/advancedjs_group02/assets/favorite-BcpN60D7.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header with Mobile Menu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav" role="navigation" aria-label="Main Navigation">
+        <a class="logo" href="./index.html" aria-label="Home">
+          <svg class="icon" width="132" height="24">
+            <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#logo"></use>
+          </svg>
+        </a>
+
+        <ul class="header-nav-list js-header-nav-list" role="menubar">
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="./index.html" role="menuitem" aria-label="Home">Home</a>
+          </li>
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="./favorite.html" role="menuitem" aria-label="Favorites">Favorites</a>
+          </li>
+        </ul>
+
+        <div class="social-media">
+          <ul class="icons-list" role="menubar">
+            <li class="media-icons" role="none">
+              <a
+                class="media-links"
+                href="https://www.facebook.com/goITclub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook GoIT page"
+                role="menuitem"
+              >
+                <svg class="icon" width="28" height="28">
+                  <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="media-icons" role="none">
+              <a
+                class="media-links"
+                href="https://www.instagram.com/goitclub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram GoIT page"
+                role="menuitem"
+              >
+                <svg class="icon" width="28" height="28">
+                  <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="media-icons" role="none">
+              <a
+                class="media-links"
+                href="https://www.youtube.com/c/GoIT"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube GoIT page"
+                role="menuitem"
+              >
+                <svg class="icon" width="28" height="28">
+                  <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="menu-btn" type="button" aria-label="Open mobile menu">
+          <svg class="icon header-menu" width="32" height="32">
+            <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#menu"></use>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-backdrop is-hidden">
+      <div class="mobile-menu">
+        <button class="close-btn-menu" type="button" aria-label="Close mobile menu">
+          <svg class="icon-close-menu" width="32" height="32">
+            <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#close"></use>
+          </svg>
+        </button>
+        <ul class="backdrop-list-menu">
+          <li class="menu-item">
+            <a class="menu-link" href="./index.html" aria-label="Move to Home page">Home</a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="./favorite.html" aria-label="Move to Favorites page">Favorites</a>
+          </li>
+        </ul>
+        <div class="backdrop-social-media">
+          <ul class="backdrop-icons-list">
+            <li class="backdrop-media-icons">
+              <a
+                class="backdrop-media-links"
+                href="https://www.facebook.com/goITclub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook GoIT page"
+              >
+                <svg class="icon" width="28" height="28">
+                  <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="backdrop-media-icons">
+              <a
+                class="backdrop-media-links"
+                href="https://www.instagram.com/goitclub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram GoIT page"
+              >
+                <svg class="icon" width="28" height="28">
+                  <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="backdrop-media-icons">
+              <a
+                class="backdrop-media-links"
+                href="https://www.youtube.com/c/GoIT"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Youtube GoIT page"
+              >
+                <svg class="icon" width="28" height="28">
+                  <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script src="../js/partials_js/header.js"></script>
+</body>
+</html>    
+
+    <section class="favorite_section section">
+    <div class="favorite_container container">
+        <h1 class="favorite_container-title">Favorites</h1>
+        <div class="favorite_container-flex">
+
+            <div class="quote_total_container">
+                <div class="quote_of_day_container">
+                    <div class="favorite_quote-card favorite_quote-card-dark">
+                        <div class="favorite_quote-icon-wrap">
+                            <svg width="18" height="20">
+                                <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#running-man"></use>
+                            </svg>
+                        </div>
+                        <h2 class="favorite_quote-header">
+                            Quote of the day
+                            <svg class="favorite_quote-icon" width="20" height="20">
+                                <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#quote"></use>
+                            </svg>
+                        </h2>
+                        <div class="quote-wrap">
+                        </div>
+                        <div class="favorite_quote-wrap">
+                            <p class="favorite_quote-text">
+                                A lot of times I find that people who are blessed with the most talent
+                                don't ever develop that attitude, and the ones who aren't blessed in
+                                that way are the most competitive and have the biggest heart.
+                            </p>
+                            <p class="favorite_quote-subtitle">Tom Brady</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sports_norm_container">
+                    <div class="favorite_110_min_card">
+                        <a class="sports-link" href="#" aria-label="Sports statistics">
+                            <svg class="favorite-icons" width="18" height="20" fill="currentColor">
+                                <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#dumbbell"></use>
+                            </svg>
+                        </a>
+                        <h2 class="favorite_quote-header">110 min</h2>
+                        <p>Daily norm of sports</p>
+                    </div>
+
+                    <div class="favorite-img-card">
+                        <picture>
+                            <!-- Desktop (1440px+) -->
+                            <source media="(min-width: 1440px)" srcset="/advancedjs_group02/assets/favorites_desktop-Cv_Hiz0w.jpg, /advancedjs_group02/assets/favorites_desktop@2x-DbHKDQen.jpg 2x" type="image/jpg">
+
+                            <!-- Tablet (768px-1439px) -->
+                            <source media="(min-width: 768px)" srcset="/advancedjs_group02/assets/favorites_tablet-CUcC_GIa.jpg, /advancedjs_group02/assets/favorites_tablet@2x-DWhBlsgW.jpg 2x" type="image/jpg">
+
+                            <!-- Mobile (up to 767px) -->
+                            <source media="(max-width: 767px)" srcset="/advancedjs_group02/assets/favorites_mobile-Dldw8NK7.jpg, /advancedjs_group02/assets/favorites_mobile@2x-Bfebw2Qd.jpg 2x" type="image/jpg">
+
+                            <!-- Fallback image -->
+                            <img class="favorite-img" src="/advancedjs_group02/assets/favorites_mobile-Dldw8NK7.jpg"
+                                alt="Two girls practicing sports together" loading="lazy" width="335" height="119">
+                        </picture>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="favorite_exercise_containers">
+                <p class="favorite_not_found">It appears that you haven't added any exercises to your favorites yet.
+                    To get started, you can add exercises that you like to your favorites for easier access in the
+                    future.</p>
+            </div>
+        </div>
+    </div>
+</section> 
+
+    <footer class="footer" id="subscribe">
+  <div class="footer-container">
+    <!-- footer top -->
+    <div class="footer-top">
+      <!-- footer logo and socials -->
+      <div class="logo-socials">
+        <nav class="footer-nav-top">
+          <!-- Logo -->
+          <a class="logo footer-logo" href="#">
+            <svg class="footer-logo-icon" width="132" height="24">
+              <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#logo"></use>
+            </svg>
+          </a>
+        </nav>
+
+        <!-- Social Media Links -->
+        <ul class="footer-socials-list">
+          <li class="footer-socials-item">
+            <a
+              class="footer-icon-link"
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Link to Facebook"
+            >
+              <svg
+                class="footer-socials-icons"
+                width="28"
+                height="28"
+                fill="currentColor"
+              >
+                <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="footer-socials-item">
+            <a
+              class="socials-link footer-icon-link"
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Link to Instagram"
+            >
+              <svg
+                class="footer-socials-icons"
+                width="28"
+                height="28"
+                fill="currentColor"
+              >
+                <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="footer-socials-item">
+            <a
+              class="footer-icon-link"
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Link to Youtube"
+            >
+              <svg
+                class="footer-socials-icons"
+                width="28"
+                height="28"
+                fill="currentColor"
+              >
+                <use href="/advancedjs_group02/assets/icons-DsHkvW1c.svg#youtube"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="text-and-form">
+        <!-- footer text -->
+        <p class="footer-text">Transforming your <i>body</i> shape with us</p>
+
+        <!-- form -->
+        <div>
+          <form class="footer-form" action="">
+            <label class="footer-form-label" for="name"
+              >Subscribe and learn about new exercise</label
+            >
+            <input type="text" class="footer-input" placeholder="Email" />
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-copyright">
+      <p class="footer-rights">Your Energy. All rights reserved.</p>
+      <p class="footer-privacy">Privacy Policy / Terms of Service</p>
+      <p class="footer-year">©2023</p>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
