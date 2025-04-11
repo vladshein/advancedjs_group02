@@ -98,6 +98,7 @@
 }
 
 .search-form {
+  display: none;
   margin-left: auto;
   margin-right: 30px;
 }
@@ -109,4 +110,8 @@
   gap: 10px;
   border-radius: 30px;
   border: 1px solid #242424;
+}
+
+.active-search-form {
+  display: block;
 }

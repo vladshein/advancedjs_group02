@@ -15,9 +15,9 @@ class ExerciseService {
   async getExercisesWithParams({
     category_type,
     category_name,
-    limit,
-    page,
-    keyword,
+    limit=8,
+    page=1,
+    keyword='',
   }) {
     const axiosOptions = {
       params: {
