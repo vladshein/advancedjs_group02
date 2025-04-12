@@ -1,9 +1,31 @@
 @media only screen and (min-width: 1440px) {
   .exercises-section {
+    max-width: 1376px;
+    margin: auto;
+    padding-top: 64px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 }
+
+@media only screen and (max-width: 1439px) {
+  .exercises-section {
+    max-width: 704px;
+    margin: auto;
+    padding-top: 64px;
+
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .exercises-section {
+    max-width: 335px;
+    margin: auto;
+    padding-top: 40px;
+  }
+}
+
 .exercises-header {
   font-family: var(--primary-font);
   font-size: 28px;
@@ -12,22 +34,36 @@
   letter-spacing: -0.02em;
   margin-bottom: 20px;
 }
+
+.exercise-header-category {
+  color: rgb(var(--cl-black), 0.5);
+  font-size: 20px;
+}
+
 @media only screen and (min-width: 768px) {
   .exercises-header {
     font-size: 44px;
     line-height: 1.09;
     margin-bottom: 32px;
   }
+
+  .exercise-header-category {
+    color: rgb(var(--cl-black), 0.5);
+    font-size: 24px;
+  }
 }
+
 @media only screen and (min-width: 1440px) {
   .exercises-header {
     margin-bottom: 0;
   }
 }
+
 .filter-btns-list {
   display: flex;
   gap: 20px;
 }
+
 .filter-btn {
   display: block;
   font-family: var(--primary-font);
@@ -42,19 +78,24 @@
   padding: 0;
   transition: color var(--fast-trns);
 }
+
 @media only screen and (min-width: 768px) {
   .filter-btn {
     font-size: 16px;
     line-height: 1.5;
   }
 }
+
 .filter-btn:hover {
-    color: rgb(var(--cl-black));;
+  color: rgb(var(--cl-black));
+  ;
 }
+
 .active-filter-btn {
   position: relative;
   color: rgb(var(--cl-black));
 }
+
 .active-filter-btn::after {
   content: '';
   position: absolute;
@@ -64,4 +105,23 @@
   border-radius: 2px;
   height: 4px;
   width: 100%;
+}
+
+.search-form {
+  display: none;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.search-field {
+  display: inline-flex;
+  padding: 12px 208px 12px 14px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid #242424;
+}
+
+.active-search-form {
+  display: block;
 }

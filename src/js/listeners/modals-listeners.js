@@ -1,8 +1,12 @@
 import { refs } from '../utils/refs.js';
 import { renderGiveRatingModal } from '../partials_js/give-rating-modal.js';
-import { formValidation } from '../utils/form-validation.js';
+import { formValidation } from '../utils/utils.js';
 import { showErrorToast } from '../utils/utils.js';
 import { exerciseService } from '../services/services.js';
+import {
+  handleAddFavorite,
+  handleOpenExerciseModal,
+} from '../handlers/modals-handlers.js';
 
 function setupModalsListeners() {
   document.addEventListener('click', event => {
@@ -58,8 +62,11 @@ function initializeRatingBlockListener() {
 }
 
 function setupOpenExerciseModalLister() {
-  refs.openExerciseModalBtn.addEventListener('click', () => {
-    handleOpenExerciseModal(id);
+  document.addEventListener('click', event => {
+    if (event.target.closest('.exercise-header-button')) {
+      const id = event.target.closest('.exercise-item').dataset.id;
+      handleOpenExerciseModal(id);
+    }
   });
 }
 
@@ -88,7 +95,6 @@ function setupGiveRatingListener() {
         review: comment,
       };
       const id = form.dataset.id;
-      console.log(data, id);
 
       try {
         const resp = await exerciseService.updateRating(id, data);

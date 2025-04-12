@@ -1,10 +1,12 @@
+/* -------------------------------
+   Desktop Styles (>=1440px)
+   ------------------------------- */
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px 15px;
   width: 900px;
   height: 1064px;
-  margin: 32px 32px 0 auto;
   padding: 0;
   box-sizing: border-box;
 }
@@ -67,41 +69,12 @@
   z-index: 1;
 }
 
-@media screen and (max-width: 1440px) {
-  .categories-grid {
-    width: 705px;
-    height: 992px;
-    margin: 32px auto 0;
-  }
-
-  .category-card {
-    width: 225px;
-    height: 225px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .categories-grid {
-    width: 335px;
-    height: auto;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin: 32px auto 0;
-  }
-
-  .category-card {
-    width: 335px;
-    height: 225px;
-  }
-}
-
 .category-page-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 32px 32px 0 auto;
   width: 900px;
-  margin-left: auto;
+  margin: 32px auto 0;
 }
 
 .page-number {
@@ -125,16 +98,61 @@
   color: #242424;
 }
 
-@media screen and (max-width: 1024px) {
+.card-container {
+  padding: 0;
+}
+
+
+/* -------------------------------
+   Tablet Styles (768px to 1439px)
+   ------------------------------- */
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .categories-grid {
+    /* Using your pre-defined tablet sizes */
+    width: 705px;
+    height: 992px;
+    grid-template-columns: repeat(3, 1fr);
+    /* Keep three columns */
+    margin: 32px auto 0;
+  }
+
+  .category-card {
+    width: 225px;
+    height: 225px;
+  }
+
   .category-page-wrapper {
     width: 705px;
     margin: 32px auto 0;
   }
 }
 
-@media screen and (max-width: 768px) {
+
+/* -------------------------------
+   Mobile Styles (<768px)
+   ------------------------------- */
+/* Targeting design around 375px (using a container width of 335px for a bit of gutter) */
+@media screen and (max-width: 767px) {
+  .categories-grid {
+    width: 335px;
+    height: auto;
+    grid-template-columns: 1fr;
+    /* Single column */
+    gap: 24px;
+    margin: 32px auto 0;
+  }
+
+  .category-card {
+    width: 335px;
+    height: 225px;
+  }
+
   .category-page-wrapper {
     width: 335px;
     margin: 32px auto 0;
   }
+}
+
+.hidden {
+  display: none;
 }

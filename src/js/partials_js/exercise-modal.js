@@ -11,6 +11,15 @@ function renderExerciseModal({
   gifUrl,
   equipment,
 }) {
+  const maxStars = 5;
+  const stars = Array.from({ length: maxStars }, (_, index) => {
+    const isRated = index < Math.floor(rating);
+    const ratedClass = isRated ? 'rated' : '';
+    return `<svg class="exercise-modal-rating-icon ${ratedClass}">
+              <use href="./images/icons.svg#star"></use>
+            </svg>`;
+  }).join('');
+
   return `<div class="container">
     <div data-id=${id} class="exercise-modal-card">
       <button class="close-modal-btn">
@@ -30,21 +39,7 @@ function renderExerciseModal({
           <h2 class="exercise-modal-title">${name}</h2>
           <div class="exercise-modal-rating-block">
             <p class="exercise-modal-rating">${rating}</p>
-            <svg class="exercise-modal-rating-icon rated">
-              <use href="./images/icons.svg#star"></use>
-            </svg>
-            <svg class="exercise-modal-rating-icon rated">
-              <use href="./images/icons.svg#star"></use>
-            </svg>
-            <svg class="exercise-modal-rating-icon rated">
-              <use href="./images/icons.svg#star"></use>
-            </svg>
-            <svg class="exercise-modal-rating-icon rated">
-              <use href="./images/icons.svg#star"></use>
-            </svg>
-            <svg class="exercise-modal-rating-icon">
-              <use href="./images/icons.svg#star"></use>
-            </svg>
+            ${stars}
           </div>
         </div>
         <div class="exercise-modal-info-block">

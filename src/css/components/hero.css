@@ -65,10 +65,8 @@
 
 .hero-tag:hover,
 .hero-tag:focus {
-  background-color: rgba(
-    var(--cl-light-gray),
-    0.3
-  ); 
+  background-color: rgba(var(--cl-light-gray),
+      0.3);
   border-color: rgba(var(--cl-black), 1);
   color: rgba(var(--cl-black), 1);
 }
@@ -143,7 +141,7 @@
 
   .hero-tags {
     position: absolute;
-    right: 30px;
+    right: 0px;
     top: 136px;
     width: 200px;
     display: flex;

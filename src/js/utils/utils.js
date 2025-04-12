@@ -11,6 +11,17 @@ function showErrorToast(message) {
   });
 }
 
+function showSuccessToast(message) {
+  return iziToast.success({
+    title: 'Success',
+    message: message,
+    position: 'topRight',
+    transitionIn: 'fadeInDown',
+    timeout: 3000,
+    close: true,
+  });
+}
+
 function formValidation(ratingSelected, email, comment) {
   const emailPattern = /^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -29,4 +40,4 @@ function formValidation(ratingSelected, email, comment) {
   return true;
 }
 
-export { showErrorToast, formValidation };
+export { showErrorToast, showSuccessToast, formValidation };
