@@ -3,7 +3,7 @@ import { renderPagination } from '../template/paginationMarkup';
 import { exerciseCreateMarkup } from '../template/exercisesMarkup';
 import { showErrorToast } from '../utils/utils';
 import { refs } from '../utils/refs';
-import { queryParams } from '../utils/consts';
+import { queryParams, category } from '../utils/consts';
 
 async function handlePageClick(event) {
   const page = event.target.textContent;
@@ -13,7 +13,8 @@ async function handlePageClick(event) {
   const width = window.innerWidth;
   if (width >= 768) {
     queryParams.limit = 10;
-  } else {
+  }
+  else {
     queryParams.limit = 8;
   }
 
@@ -37,11 +38,10 @@ async function handlePageClick(event) {
 
     // пагінація
     renderPagination(
-      refs.exercisePageWrapper,
-      queryParams.page,
-      queryParams.maxPage,
-      handlePageClick
+        queryParams.page,
+        queryParams.maxPage
     );
+
   } catch (err) {
     // refs.loader.classList.remove(ACTIVE_CLASS);
     console.log(err);
@@ -52,6 +52,13 @@ async function handlePageClick(event) {
 
 async function handleSearch(event) {
   event.preventDefault();
+
+  const form = event.currentTarget;
+  const userQuery = form.elements.query.value.trim();
+  if (userQuery === '') {
+    showErrorToast('Please entered your request');
+    return;
+  }
   // скидання попередніх станів перед повторним запитом
   refs.exercisePageWrapper.innerHTML = '';
   refs.exercises.innerHTML = '';
@@ -61,15 +68,9 @@ async function handleSearch(event) {
   const width = window.innerWidth;
   if (width >= 768) {
     queryParams.limit = 10;
-  } else {
-    queryParams.limit = 8;
   }
-
-  const form = event.currentTarget;
-  const userQuery = form.elements.query.value.trim();
-  if (userQuery === '') {
-    showErrorToast('Please entered your request');
-    return;
+  else {
+    queryParams.limit = 8;
   }
 
   // refs.loader.classList.add(ACTIVE_CLASS);
@@ -94,11 +95,10 @@ async function handleSearch(event) {
 
     // тут має бути пагінація
     renderPagination(
-      refs.exercisePageWrapper,
-      queryParams.page,
-      queryParams.maxPage,
-      handlePageClick
+        queryParams.page,
+        queryParams.maxPage
     );
+
   } catch (err) {
     // refs.loader.classList.remove(ACTIVE_CLASS);
     console.log(err);
@@ -109,33 +109,36 @@ async function handleSearch(event) {
 
 async function handleCategoryClick(event) {
   event.preventDefault();
-  refs.searchForm.classList.add('active-search-form');
-  // refs.categories.classList.add('hidden');
-  // скидання попередніх станів перед повторним запитом
-  refs.exercisePageWrapper.innerHTML = '';
-  refs.exercises.innerHTML = '';
-  queryParams.page = 1;
-  queryParams.keyword = '';
   if (event.target === event.currentTarget) {
     return;
   }
+  refs.searchForm.classList.add('active-search-form');
+  refs.exerciseContainer.classList.remove('hidden');
+  // скидання попередніх станів перед повторним запитом
+  refs.exercises.innerHTML = '';
+  refs.cardContainer.classList.add('hidden');
+  refs.exercisePageWrapper.innerHTML = '';
+
+  queryParams.page = 1;
+  queryParams.keyword = '';
+
+
 
   // refs.notFoundText.innerHTML = '';
   const width = window.innerWidth;
   if (width >= 768) {
     queryParams.limit = 10;
-  } else {
+  }
+  else {
     queryParams.limit = 8;
   }
 
   // refs.loader.classList.add(ACTIVE_CLASS);
-  queryParams.category_name = event.target
-    .querySelector('.category-name')
-    .textContent.toLowerCase();
-  queryParams.category_type = event.target
-    .querySelector('.category-type')
-    .textContent.toLowerCase();
-  console.log(queryParams.category_name, queryParams.category_type);
+  queryParams.category_name = event.target.querySelector('.category-name').textContent;
+  queryParams.category_type = category[event.target.querySelector('.category-type').textContent.replace(/\s/g,'')];
+
+  refs.exercisesHeader.innerHTML = `Exercises / <span class="exercise-header-category">${queryParams.category_name}</span>`;
+  queryParams.category_name = queryParams.category_name.toLowerCase()
 
   try {
     const exercises = await exerciseService.getExercisesWithParams(queryParams);
@@ -156,16 +159,16 @@ async function handleCategoryClick(event) {
 
     // тут має бути пагінація
     renderPagination(
-      refs.exercisePageWrapper,
-      queryParams.page,
-      queryParams.maxPage,
-      handlePageClick
+        queryParams.page,
+        queryParams.maxPage
     );
+
   } catch (err) {
     // refs.loader.classList.remove(ACTIVE_CLASS);
     console.log(err);
   } finally {
   }
 }
+
 
 export { handleSearch, handlePageClick, handleCategoryClick };
