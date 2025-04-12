@@ -1,46 +1,27 @@
-import axios from 'axios';
-import { API_URL } from '../utils/consts.js';
 import { showErrorToast } from '../utils/utils.js';
-import { filtersService, paginationService } from './services.js';
-
-document.addEventListener('DOMContentLoaded', loadCategories);
-
-async function loadCategories() {
-  const categoriesContainer = document.getElementById('categories-container');
+import { filtersService } from './services.js';
+import { renderPagination } from '../template/paginationMarkup.js';
+import { handleCardPageClick } from '../handlers/category-card_handler.js';
+import { refs } from '../utils/refs.js';
+async function loadCategories(page = 1) {
+  const paginationContainer = document.querySelector('.category-page-wrapper');
 
   const filterRequest = filtersService.getFilterQuery();
   const limit = window.innerWidth < 768 ? 9 : 12;
-  const currentPage = paginationService.getCurrentPage();
+
   try {
-  
     const filteredCategories = await filtersService.fetchFilteredData(
       filterRequest,
       limit,
-      currentPage
+      page
     );
-  
-    // const page1 = await filtersService.fetchFilteredData(
-    //   filterRequest,
-    //   limit,
-    //   currentPage
-    // );
 
-    // const page2 = await filtersService.fetchFilteredData(
-    //   filterRequest,
-    //   limit,
-    //   currentPage
-    // );
+    const sortedResults = filteredCategories.results.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
 
-    // const combinedResults = page1.data.results.concat(page2.data.results);
-
-    const sortedResults = filteredCategories.results.sort(function (a, b) {
-      return a.name.localeCompare(b.name);
-    });
-
-    // const limitedResults = sortedResults.slice(0, limit);
-
-    categoriesContainer.innerHTML = '';
-    sortedResults.forEach(function (category) {
+    refs.categories.innerHTML = '';
+    sortedResults.forEach(category => {
       const categoryCard = document.createElement('div');
       categoryCard.className = 'category-card';
 
@@ -56,13 +37,23 @@ async function loadCategories() {
         <div class="category-type">${category.filter}</div>
       `;
 
-      categoriesContainer.appendChild(categoryCard);
+      refs.categories.appendChild(categoryCard);
     });
+
+    paginationContainer.innerHTML = '';
+    if (filteredCategories.totalPages > 1) {
+      renderPagination(
+        paginationContainer,
+        page,
+        filteredCategories.totalPages,
+        handleCardPageClick
+      );
+    }
   } catch (error) {
     showErrorToast(
       'Failed to load exercise categories. Please try again later.'
     );
   }
 }
-
+loadCategories();
 export { loadCategories };
