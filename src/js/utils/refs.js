@@ -1,6 +1,5 @@
 const refs = {
   exerciseModal: document.querySelector('#exercise-modal'),
-  openExerciseModalBtn: document.querySelector('.exercise-header-button'),
   exerciseContainer: document.querySelector('.exercise-container'),
   exercises: document.querySelector('.exercise-list'),
   exercisePageWrapper: document.querySelector('.exercise-page-wrapper'),
@@ -13,5 +12,8 @@ const refs = {
   categories: document.querySelector('#categories-container'),
   categoriesWrap: document.querySelector('.category-page-wrapper'),
   footerForm: document.querySelector('.footer-form'),
+  giveRatingModal: document.querySelector('#give-rating-modal'),
+  ratingBlock: document.querySelector('.rating-modal-rating-block'),
+  ratingDisplay: document.querySelector('.rating-modal-rating'),
 };
 export { refs };
