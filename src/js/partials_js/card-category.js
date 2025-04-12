@@ -58,5 +58,5 @@ function handleCardPageClick(event) {
   loadCategories(page);
 }
 
-loadCategories();
+// loadCategories();
 export { loadCategories };
