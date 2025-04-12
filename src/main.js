@@ -8,6 +8,7 @@ import {
 import { handleRenderQuote } from './js/partials_js/quote';
 import { onFilterBtnClick } from './js/partials_js/filter';
 import { handleSubscription } from './js/partials_js/subscription';
+import { loadCategories } from './js/partials_js/card-category';
 import {
   setupModalsListeners,
   setupOpenExerciseModalLister,
@@ -19,6 +20,8 @@ handleRenderQuote();
 refs.filterBtnsList.addEventListener('click', onFilterBtnClick);
 refs.footerForm.addEventListener('submit', handleSubscription);
 refs.categories.addEventListener('click', handleCategoryClick);
+
+loadCategories();
 
 document.addEventListener('DOMContentLoaded', () => {
   setupModalsListeners();

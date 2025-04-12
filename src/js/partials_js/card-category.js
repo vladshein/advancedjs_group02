@@ -1,7 +1,7 @@
 import { showErrorToast } from '../utils/utils.js';
-import { filtersService } from './services.js';
 import { renderPagination } from '../template/paginationMarkup.js';
 import { refs } from '../utils/refs.js';
+import {filtersService} from "../services/services.js";
 async function loadCategories(page = 1) {
   const filterRequest = filtersService.getFilterQuery();
   const limit = window.innerWidth < 768 ? 9 : 12;

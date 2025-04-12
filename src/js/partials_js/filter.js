@@ -1,6 +1,6 @@
 import { refs } from '../utils/refs.js';
 import { filtersService } from '../services/services.js';
-import { loadCategories } from '../services/card-category.js';
+import {loadCategories} from "./card-category.js";
 
 function onFilterBtnClick(event) {
     refs.filterBtns.forEach(btn => {
@@ -20,5 +20,5 @@ function onFilterBtnClick(event) {
   filtersService.setFilterQuery(event.target.textContent.trim());
   loadCategories();
 }
-  
+
 export { onFilterBtnClick };
