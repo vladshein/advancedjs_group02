@@ -1,3 +1,5 @@
+import iconsPath from '../../images/icons.svg';
+
 function renderExerciseModal({
   _id,
   name,
@@ -16,7 +18,7 @@ function renderExerciseModal({
     const isRated = index < Math.floor(rating);
     const ratedClass = isRated ? 'rated' : '';
     return `<svg class="exercise-modal-rating-icon ${ratedClass}">
-              <use href="./images/icons.svg#star"></use>
+              <use href="${iconsPath}#star"></use>
             </svg>`;
   }).join('');
 
@@ -24,7 +26,7 @@ function renderExerciseModal({
     <div data-id=${_id} class="exercise-modal-card">
       <button class="close-modal-btn">
         <svg class="close-modal-icon">
-          <use href="./images/icons.svg#close"></use>
+          <use href="${iconsPath}#close"></use>
         </svg>
       </button>
       <div class="exercise-gif-wrapper">
@@ -69,7 +71,7 @@ function renderExerciseModal({
           <button id="add-to-favorites" class="btn btn-primary">
             Add to favorites
             <svg class="exercise-modal-btn-icon">
-              <use href="./images/icons.svg#heart"></use>
+              <use href="${iconsPath}#heart"></use>
             </svg>
           </button>
           <button id="give-rating" class="btn btn-secondary">Give a rating</button>
