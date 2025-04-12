@@ -4,12 +4,24 @@ import {
   handleSearch,
   handleCategoryClick,
 } from './js/handlers/exercise_handlers';
-import { handleRendelQuote } from './js/partials_js/qoute';
+
+import { handleRenderQuote } from './js/partials_js/quote';
 import { onFilterBtnClick } from './js/partials_js/filter';
 import { handleSubscription } from './js/partials_js/subscription';
+import {
+  setupModalsListeners,
+  setupOpenExerciseModalLister,
+  setupGiveRatingListener,
+} from './js/listeners/modals-listeners';
 
 refs.searchForm.addEventListener('submit', handleSearch);
-handleRendelQuote();
+handleRenderQuote();
 refs.filterBtnsList.addEventListener('click', onFilterBtnClick);
 refs.footerForm.addEventListener('submit', handleSubscription);
 refs.categories.addEventListener('click', handleCategoryClick);
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupModalsListeners();
+  setupOpenExerciseModalLister();
+  setupGiveRatingListener();
+});

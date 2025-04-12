@@ -8,4 +8,10 @@ const queryParams = {
     category_name: 'waist',
 };
 
-export { queryParams };
+const category = {
+    Muscles: 'muscles',
+    Equipment: 'equipment',
+    Bodyparts: 'bodypart',
+}
+
+export { queryParams, category };

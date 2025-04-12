@@ -66,6 +66,8 @@ body {
   color: rgba(var(--cl-black));
 }
 
+/* #Region Modal */
+
 .modal-overlay {
   background-color: rgba(var(--cl-bg-color), 0.4);
   position: fixed;
@@ -87,3 +89,34 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
+
+.close-modal-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .close-modal-btn {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+.close-modal-icon {
+  width: 24px;
+  height: 24px;
+  stroke: rgba(var(--cl-lighthouse));
+}
+
+@media screen and (min-width: 768px) {
+  .close-modal-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* #endregion */

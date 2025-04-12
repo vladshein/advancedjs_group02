@@ -9,7 +9,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1439px) {
   .exercises-section {
     max-width: 704px;
     margin: auto;
@@ -18,7 +18,7 @@
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 767px) {
   .exercises-section {
     max-width: 335px;
     margin: auto;
@@ -35,11 +35,21 @@
   margin-bottom: 20px;
 }
 
+.exercise-header-category {
+  color: rgb(var(--cl-black), 0.5);
+  font-size: 20px;
+}
+
 @media only screen and (min-width: 768px) {
   .exercises-header {
     font-size: 44px;
     line-height: 1.09;
     margin-bottom: 32px;
+  }
+
+  .exercise-header-category {
+    color: rgb(var(--cl-black), 0.5);
+    font-size: 24px;
   }
 }
 

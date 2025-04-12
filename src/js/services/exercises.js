@@ -8,27 +8,44 @@ class ExerciseService {
   }
 
   async getExerciseById(id) {
-    const { data } = await axios.get(`${API_URL}/exercises/${id}`);
-    return data;
+    try {
+      const { data } = await axios.get(`${API_URL}/exercises/${id}`);
+      return data;
+    } catch (error) {
+      console.error('Error fetching exercise by ID:', error);
+      throw error;
+    }
   }
 
   async getExercisesWithParams({
     category_type,
     category_name,
-    limit=8,
-    page=1,
-    keyword='',
+    limit = 8,
+    page = 1,
+    keyword = '',
   }) {
-    const axiosOptions = {
-      params: {
-        [category_type]: category_name,
-        limit,
-        page,
-        keyword,
-      },
+    const params = {
+      [category_type]: category_name,
+      limit,
+      page,
     };
-    const { data } = await axios.get(`${API_URL}/exercises/`, axiosOptions);
+    if (keyword) {
+      params.keyword = keyword;
+    }
+    const { data } = await axios.get(`${API_URL}/exercises`, { params });
     return data;
+  }
+
+  async updateRating(id, rating) {
+    try {
+      const { data } = await axios.patch(
+        `${API_URL}/exercises/${id}/rating`,
+        rating
+      );
+      return data;
+    } catch (error) {
+      throw error;
+    }
   }
 }
 
