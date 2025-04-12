@@ -15,19 +15,20 @@ class ExerciseService {
   async getExercisesWithParams({
     category_type,
     category_name,
-    limit=8,
-    page=1,
-    keyword='',
+    limit = 8,
+    page = 1,
+    keyword = '',
   }) {
-    const axiosOptions = {
-      params: {
-        [category_type]: category_name,
-        limit,
-        page,
-        keyword,
-      },
-    };
-    const { data } = await axios.get(`${API_URL}/exercises/`, axiosOptions);
+
+    const params = {
+      [category_type]: category_name,
+      limit,
+      page,
+    }
+    if (keyword) {
+      params.keyword = keyword;
+    }
+    const { data } = await axios.get(`${API_URL}/exercises`, {params});
     return data;
   }
 }
