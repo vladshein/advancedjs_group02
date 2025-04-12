@@ -2,26 +2,25 @@ import { refs } from '../utils/refs.js';
 import { quotesService } from '../services/services.js';
 import { showErrorToast } from '../utils/utils.js';
 
-function rendelQuote({ author, quote }) {
+function renderQuote({ author, quote }) {
   return `<p class="quote-text">
         ${quote}
       </p>
       <p class="quote-subtitle">${author}</p>`;
 }
 
-async function handleRendelQuote() {
+async function handleRenderQuote() {
   try {
-    
     const quoteAndDateFromLS = quotesService.getQuoteDataFromLS();
     if (!quoteAndDateFromLS || Date.now() !== quoteAndDateFromLS.currentDate) {
       const quoteData = await quotesService.getQuote();
       quotesService.setQuoteDataToLS(quoteData);
 
-      refs.qouteWrap.insertAdjacentHTML('beforeend', rendelQuote(quoteData));
+      refs.quoteWrap.insertAdjacentHTML('beforeend', renderQuote(quoteData));
     } else {
-      refs.qouteWrap.insertAdjacentHTML(
+      refs.quoteWrap.insertAdjacentHTML(
         'beforeend',
-        rendelQuote(quoteAndDateFromLS.quote)
+        renderQuote(quoteAndDateFromLS.quote)
       );
     }
   } catch (error) {
@@ -29,4 +28,4 @@ async function handleRendelQuote() {
   }
 }
 
-export { handleRendelQuote };
+export { handleRenderQuote };
