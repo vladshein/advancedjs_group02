@@ -1,5 +1,5 @@
-import { handleRendelQuote } from './qoute.js';
-
+import { handleRenderQuote } from './quote.js';
+ 
 document.addEventListener('DOMContentLoaded', () => {
-  handleRendelQuote();
+    handleRenderQuote();
 });
