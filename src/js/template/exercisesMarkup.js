@@ -1,4 +1,5 @@
 import iconsPath from '../../images/icons.svg';
+import { shortenText } from '../utils/utils';
 
 function exerciseCreateMarkup(exercises) {
   return exercises
@@ -42,20 +43,20 @@ function exerciseCreateMarkup(exercises) {
               <use href="${iconsPath}#running-man"></use>
             </svg>
           </div>
-          <h3 class="exercise-title-text">${exercise.name}</h3>
+          <h3 class="exercise-title-text">${window.innerWidth <= 1440 ? shortenText(exercise.name, 25) : exercise.name}</h3>
         </div>
         <ul class="exercise-footer">
           <li>
             <span class="exercise-footer-item-accent">Burned calories:</span>
-            ${exercise.burnedCalories}
+            ${window.innerWidth <= 1440 ? shortenText(exercise.burnedCalories, 8) : exercise.burnedCalories}
           </li>
           <li>
             <span class="exercise-footer-item-accent">Body part:</span>
-            ${exercise.bodyPart}
+            ${window.innerWidth <= 1440 ? shortenText(exercise.bodyPart, 5) : exercise.bodyPart}
           </li>
           <li>
             <span class="exercise-footer-item-accent">Target:</span>
-            ${exercise.target}
+            ${window.innerWidth <= 1440 ? shortenText(exercise.target, 4) : exercise.target}
           </li>
         </ul>
       </li>`
