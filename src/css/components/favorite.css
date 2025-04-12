@@ -77,6 +77,7 @@
 }
 
 .favorite_not_found {
+    display: none;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
@@ -90,4 +91,10 @@
         background: var(--cl-white);       
         min-width: 554px;
     }
+}
+
+.favorite_exercises {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
