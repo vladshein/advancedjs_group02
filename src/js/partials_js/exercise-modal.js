@@ -1,12 +1,5 @@
-import { refs } from '../utils/refs.js';
-import { exerciseService } from '../services/services.js';
-import { showErrorToast } from '../utils/utils.js';
-
-// Delete this line when you get the id from the event
-const id = '64f389465ae26083f39b17a4';
-
-function renderModal({
-  id,
+function renderExerciseModal({
+  _id,
   name,
   target,
   bodyPart,
@@ -28,9 +21,9 @@ function renderModal({
   }).join('');
 
   return `<div class="container">
-    <div data-id=${id} class="modal exercise-modal-card">
-      <button class="close-exercise-modal-btn">
-        <svg class="close-exercise-modal-icon">
+    <div data-id=${_id} class="exercise-modal-card">
+      <button class="close-modal-btn">
+        <svg class="close-modal-icon">
           <use href="./images/icons.svg#close"></use>
         </svg>
       </button>
@@ -79,65 +72,11 @@ function renderModal({
               <use href="./images/icons.svg#heart"></use>
             </svg>
           </button>
-          <button class="btn btn-secondary">Give a rating</button>
+          <button id="give-rating" class="btn btn-secondary">Give a rating</button>
         </div>
       </div>
     </div>
     </div>`;
 }
 
-// Handlers
-
-async function handleOpenExerciseModal(id) {
-  try {
-    const exercise = await exerciseService.getExerciseById(id);
-    refs.exerciseModal.classList.add('is-open');
-
-    const modal = renderModal(exercise);
-    refs.exerciseModal.innerHTML = modal;
-  } catch (error) {
-    showErrorToast(error.message);
-  }
-}
-
-function handleAddFavorite(id) {
-  try {
-    const favorites = localStorage.getItem('favorites');
-
-    if (!favorites) {
-      localStorage.setItem('favorites', JSON.stringify([id]));
-    } else {
-      const favoritesArray = JSON.parse(favorites);
-      if (!favoritesArray.includes(id)) {
-        localStorage.setItem(
-          'favorites',
-          JSON.stringify([...favoritesArray, id])
-        );
-      }
-    }
-  } catch (error) {
-    showErrorToast(error.message);
-  }
-}
-
-// Event listeners
-
-refs.openExerciseModalBtn.addEventListener('click', event => {
-  handleOpenExerciseModal(id);
-});
-
-document.addEventListener('click', event => {
-  if (refs.exerciseModal) {
-    if (
-      event.target === refs.exerciseModal ||
-      event.target.closest('.close-exercise-modal-btn')
-    ) {
-      refs.exerciseModal.classList.remove('is-open');
-    }
-    if (event.target.closest('#add-to-favorites')) {
-      handleAddFavorite(id);
-    }
-  }
-});
-
-export { handleOpenExerciseModal, handleAddFavorite };
+export { renderExerciseModal };

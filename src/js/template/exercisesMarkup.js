@@ -1,7 +1,7 @@
 function exerciseCreateMarkup(exercises) {
   return exercises
     .map(
-      exercise => `<li class="exercise-item" data-id="${exercise.id}">
+      exercise => `<li class="exercise-item" data-id="${exercise._id}">
         <div class="exercise-header">
           <p class="exercise-header-badge">WORKOUT</p>
           <div class="exercise-header-rating">
