@@ -6,7 +6,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 32px 15px;
   width: 900px;
-  height: 1064px;
   padding: 0;
   box-sizing: border-box;
 }
@@ -102,7 +101,6 @@
   padding: 0;
 }
 
-
 /* -------------------------------
    Tablet Styles (768px to 1439px)
    ------------------------------- */
@@ -126,7 +124,6 @@
     margin: 32px auto 0;
   }
 }
-
 
 /* -------------------------------
    Mobile Styles (<768px)

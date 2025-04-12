@@ -18,36 +18,38 @@ async function handlePageClick(event) {
         queryParams.limit = 8;
     }
 
-    // refs.loader.classList.add(ACTIVE_CLASS);
-    try {
-        const exercises = await exerciseService.getExercisesWithParams(queryParams);
+  // refs.loader.classList.add(ACTIVE_CLASS);
+  try {
+    const exercises = await exerciseService.getExercisesWithParams(queryParams);
 
-        // refs.loader.classList.remove(ACTIVE_CLASS);
-        queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
+    // refs.loader.classList.remove(ACTIVE_CLASS);
+    queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
 
-        if (exercises.results.length === 0) {
-            refs.exercises.innerHTML = '';
-            //   refs.notFoundText.innerHTML = 'Нема вправ за цим ключовим словом';
-        }
-        refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
-
-        // якщо за перший запит ми отримали всі обʼєкти колекції - не показуємо пагінацію
-        if (queryParams.maxPage === 1) {
-            return;
-        }
-
-        // пагінація
-        renderPagination(
-            queryParams.page,
-            queryParams.maxPage
-        );
-
-    } catch (err) {
-        // refs.loader.classList.remove(ACTIVE_CLASS);
-        console.log(err);
-    } finally {
-        // refs.loader.classList.remove(ACTIVE_CLASS);
+    if (exercises.results.length === 0) {
+      refs.exercises.innerHTML = '';
+      //   refs.notFoundText.innerHTML = 'Нема вправ за цим ключовим словом';
     }
+    refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
+
+    // якщо за перший запит ми отримали всі обʼєкти колекції - не показуємо пагінацію
+    if (queryParams.maxPage === 1) {
+      return;
+    }
+
+    // пагінація
+    renderPagination(
+        refs.exercisePageWrapper,
+        queryParams.page,
+        queryParams.maxPage,
+        handlePageClick,
+    );
+
+  } catch (err) {
+    // refs.loader.classList.remove(ACTIVE_CLASS);
+    console.log(err);
+  } finally {
+    // refs.loader.classList.remove(ACTIVE_CLASS);
+  }
 }
 
 async function handleSearch(event) {
@@ -65,46 +67,48 @@ async function handleSearch(event) {
     queryParams.page = 1;
     // refs.notFoundText.innerHTML = '';
 
-    const width = window.innerWidth;
-    if (width >= 768) {
-        queryParams.limit = 10;
-    }
-    else {
-        queryParams.limit = 8;
-    }
+  const width = window.innerWidth;
+  if (width >= 768) {
+    queryParams.limit = 10;
+  }
+  else {
+    queryParams.limit = 8;
+  }
 
     // refs.loader.classList.add(ACTIVE_CLASS);
     queryParams.keyword = userQuery;
 
-    try {
-        const exercises = await exerciseService.getExercisesWithParams(queryParams);
+  try {
+    const exercises = await exerciseService.getExercisesWithParams(queryParams);
 
-        // refs.loader.classList.remove(ACTIVE_CLASS);
+    // refs.loader.classList.remove(ACTIVE_CLASS);
 
-        queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
+    queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
 
-        if (exercises.results.length === 0) {
-            refs.exercises.innerHTML = '';
-            //   refs.notFoundText.innerHTML = 'Нема вправ за цим ключовим словом';
-        }
-        refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
-        // якщо за перший запит ми отримали всі обʼєкти колекції - не показуємо пагінацію
-        if (queryParams.maxPage === 1) {
-            return;
-        }
-
-        // тут має бути пагінація
-        renderPagination(
-            queryParams.page,
-            queryParams.maxPage
-        );
-
-    } catch (err) {
-        // refs.loader.classList.remove(ACTIVE_CLASS);
-        console.log(err);
-    } finally {
-        form.reset();
+    if (exercises.results.length === 0) {
+      refs.exercises.innerHTML = '';
+      //   refs.notFoundText.innerHTML = 'Нема вправ за цим ключовим словом';
     }
+    refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
+    // якщо за перший запит ми отримали всі обʼєкти колекції - не показуємо пагінацію
+    if (queryParams.maxPage === 1) {
+      return;
+    }
+
+    // тут має бути пагінація
+      renderPagination(
+          refs.exercisePageWrapper,
+          queryParams.page,
+          queryParams.maxPage,
+          handlePageClick,
+      );
+
+  } catch (err) {
+    // refs.loader.classList.remove(ACTIVE_CLASS);
+    console.log(err);
+  } finally {
+    form.reset();
+  }
 }
 
 async function handleCategoryClick(event) {
@@ -122,16 +126,16 @@ async function handleCategoryClick(event) {
     queryParams.page = 1;
     queryParams.keyword = '';
 
- 
 
-    // refs.notFoundText.innerHTML = '';
-    const width = window.innerWidth;
-    if (width >= 768) {
-        queryParams.limit = 10;
-    }
-    else {
-        queryParams.limit = 8;
-    }
+
+  // refs.notFoundText.innerHTML = '';
+  const width = window.innerWidth;
+  if (width >= 768) {
+    queryParams.limit = 10;
+  }
+  else {
+    queryParams.limit = 8;
+  }
 
     // refs.loader.classList.add(ACTIVE_CLASS);
     queryParams.category_name = event.target.querySelector('.category-name').textContent;
@@ -140,34 +144,36 @@ async function handleCategoryClick(event) {
     refs.exercisesHeader.innerHTML = `Exercises / <span class="exercise-header-category">${queryParams.category_name}</span>`;
     queryParams.category_name = queryParams.category_name.toLowerCase()
 
-    try {
-        const exercises = await exerciseService.getExercisesWithParams(queryParams);
+  try {
+    const exercises = await exerciseService.getExercisesWithParams(queryParams);
 
-        // refs.loader.classList.remove(ACTIVE_CLASS);
+    // refs.loader.classList.remove(ACTIVE_CLASS);
 
-        queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
+    queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
 
-        if (exercises.results.length === 0) {
-            refs.exercises.innerHTML = '';
-            //   refs.notFoundText.innerHTML = 'Нема вправ за цим ключовим словом';
-        }
-        refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
-        // якщо за перший запит ми отримали всі обʼєкти колекції - не показуємо пагінацію
-        if (queryParams.maxPage === 1) {
-            return;
-        }
-
-        // тут має бути пагінація
-        renderPagination(
-            queryParams.page,
-            queryParams.maxPage
-        );
-
-    } catch (err) {
-        // refs.loader.classList.remove(ACTIVE_CLASS);
-        console.log(err);
-    } finally {
+    if (exercises.results.length === 0) {
+      refs.exercises.innerHTML = '';
+      //   refs.notFoundText.innerHTML = 'Нема вправ за цим ключовим словом';
     }
+    refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
+    // якщо за перший запит ми отримали всі обʼєкти колекції - не показуємо пагінацію
+    if (queryParams.maxPage === 1) {
+      return;
+    }
+
+    // тут має бути пагінація
+      renderPagination(
+          refs.exercisePageWrapper,
+          queryParams.page,
+          queryParams.maxPage,
+          handlePageClick,
+      );
+
+  } catch (err) {
+    // refs.loader.classList.remove(ACTIVE_CLASS);
+    console.log(err);
+  } finally {
+  }
 }
 
 
