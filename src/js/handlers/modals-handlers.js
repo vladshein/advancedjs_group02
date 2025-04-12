@@ -1,0 +1,38 @@
+import { renderExerciseModal } from '../partials_js/exercise-modal.js';
+import { refs } from '../utils/refs.js';
+import { showErrorToast } from '../utils/utils.js';
+import { exerciseService } from '../services/services.js';
+
+async function handleOpenExerciseModal(id) {
+  try {
+    const exercise = await exerciseService.getExerciseById(id);
+    refs.exerciseModal.classList.add('is-open');
+
+    const modal = renderExerciseModal(exercise);
+    refs.exerciseModal.innerHTML = modal;
+  } catch (error) {
+    showErrorToast(error.message);
+  }
+}
+
+function handleAddFavorite(id) {
+  try {
+    const favorites = localStorage.getItem('favorites');
+
+    if (!favorites) {
+      localStorage.setItem('favorites', JSON.stringify([id]));
+    } else {
+      const favoritesArray = JSON.parse(favorites);
+      if (!favoritesArray.includes(id)) {
+        localStorage.setItem(
+          'favorites',
+          JSON.stringify([...favoritesArray, id])
+        );
+      }
+    }
+  } catch (error) {
+    showErrorToast(error.message);
+  }
+}
+
+export { handleOpenExerciseModal, handleAddFavorite };
