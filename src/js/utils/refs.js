@@ -4,7 +4,7 @@ const refs = {
   exercises: document.querySelector('.exercise-list'),
   exercisePageWrapper: document.querySelector('.exercise-page-wrapper'),
   searchForm: document.querySelector('.search-form'),
-  qouteWrap: document.querySelector('.quote-wrap'),
+  quoteWrap: document.querySelector('.quote-wrap'),
   exercisesHeader: document.querySelector('.exercises-header'),
   filterBtnsList: document.querySelector('.filter-btns-list'),
   filterBtns: document.querySelectorAll('.js-filter-btn'),
