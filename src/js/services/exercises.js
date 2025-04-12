@@ -24,22 +24,19 @@ class ExerciseService {
     page = 1,
     keyword = '',
   }) {
-
     const params = {
       [category_type]: category_name,
       limit,
       page,
-    }
+    };
     if (keyword) {
       params.keyword = keyword;
     }
-    const { data } = await axios.get(`${API_URL}/exercises`, {params});
+    const { data } = await axios.get(`${API_URL}/exercises`, { params });
     return data;
   }
 
   async updateRating(id, rating) {
-    console.log('rating', rating);
-
     try {
       const { data } = await axios.patch(
         `${API_URL}/exercises/${id}/rating`,

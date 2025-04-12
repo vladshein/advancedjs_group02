@@ -1,5 +1,5 @@
 function renderExerciseModal({
-  id,
+  _id,
   name,
   target,
   bodyPart,
@@ -21,7 +21,7 @@ function renderExerciseModal({
   }).join('');
 
   return `<div class="container">
-    <div data-id=${id} class="exercise-modal-card">
+    <div data-id=${_id} class="exercise-modal-card">
       <button class="close-modal-btn">
         <svg class="close-modal-icon">
           <use href="./images/icons.svg#close"></use>

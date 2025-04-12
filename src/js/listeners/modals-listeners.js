@@ -1,7 +1,10 @@
 import { refs } from '../utils/refs.js';
 import { renderGiveRatingModal } from '../partials_js/give-rating-modal.js';
-import { formValidation } from '../utils/utils.js';
-import { showErrorToast } from '../utils/utils.js';
+import {
+  formValidation,
+  showSuccessToast,
+  showErrorToast,
+} from '../utils/utils.js';
 import { exerciseService } from '../services/services.js';
 import {
   handleAddFavorite,
@@ -22,12 +25,15 @@ function setupModalsListeners() {
       }
       // Add to favorite
       if (event.target.closest('#add-to-favorites')) {
+        const id = event.target.closest('.exercise-modal-card').dataset.id;
         handleAddFavorite(id);
       }
       // Open Give rating modal
       if (event.target.closest('#give-rating')) {
         refs.exerciseModal.classList.remove('is-open');
         refs.giveRatingModal.classList.add('is-open');
+
+        const id = event.target.closest('.exercise-modal-card').dataset.id;
 
         const giveRatingModal = renderGiveRatingModal(id);
         refs.giveRatingModal.innerHTML = giveRatingModal;
@@ -65,6 +71,7 @@ function setupOpenExerciseModalLister() {
   document.addEventListener('click', event => {
     if (event.target.closest('.exercise-header-button')) {
       const id = event.target.closest('.exercise-item').dataset.id;
+
       handleOpenExerciseModal(id);
     }
   });
@@ -97,12 +104,12 @@ function setupGiveRatingListener() {
       const id = form.dataset.id;
 
       try {
-        const resp = await exerciseService.updateRating(id, data);
-        console.log(resp);
+        await exerciseService.updateRating(id, data);
+        refs.giveRatingModal.classList.remove('is-open');
+        showSuccessToast('Rating submitted successfully!');
       } catch (error) {
         const errorMessage =
           error.response?.data?.message || 'An unknown error occurred';
-        console.error('Error while updating rating:', errorMessage);
         showErrorToast(errorMessage);
       }
     }

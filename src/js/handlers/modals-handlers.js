@@ -1,6 +1,6 @@
 import { renderExerciseModal } from '../partials_js/exercise-modal.js';
 import { refs } from '../utils/refs.js';
-import { showErrorToast } from '../utils/utils.js';
+import { showErrorToast, showSuccessToast } from '../utils/utils.js';
 import { exerciseService } from '../services/services.js';
 
 async function handleOpenExerciseModal(id) {
@@ -21,6 +21,7 @@ function handleAddFavorite(id) {
 
     if (!favorites) {
       localStorage.setItem('favorites', JSON.stringify([id]));
+      showSuccessToast('Exercise added to favorites!');
     } else {
       const favoritesArray = JSON.parse(favorites);
       if (!favoritesArray.includes(id)) {
@@ -28,6 +29,9 @@ function handleAddFavorite(id) {
           'favorites',
           JSON.stringify([...favoritesArray, id])
         );
+        showSuccessToast('Exercise added to favorites!');
+      } else {
+        showErrorToast('Exercise already in favorites!');
       }
     }
   } catch (error) {
