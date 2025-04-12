@@ -109,6 +109,7 @@
 
 .exercise-title-icon-tumb {
   display: inline-flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   background-color: rgb(var(--cl-black));
