@@ -1,3 +1,5 @@
+import iconsPath from '../../images/icons.svg';
+
 function exerciseCreateMarkup(exercises) {
   return exercises
     .map(
@@ -13,7 +15,7 @@ function exerciseCreateMarkup(exercises) {
               viewBox="0 0 18 18"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <use href="./images/icons.svg#star"></use>
+              <use href="${iconsPath}#star"></use>
             </svg>
           </div>
           <button class="exercise-header-button" type="button">
@@ -24,7 +26,7 @@ function exerciseCreateMarkup(exercises) {
               height="16"
               viewBox="0 0 16 16"
             >
-              <use href="./images/icons.svg#arrow-right"></use>
+              <use href="${iconsPath}#arrow-right"></use>
             </svg>
           </button>
         </div>
@@ -37,7 +39,7 @@ function exerciseCreateMarkup(exercises) {
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <use href="./images/icons.svg#running-man"></use>
+              <use href="${iconsPath}#running-man"></use>
             </svg>
           </div>
           <h3 class="exercise-title-text">${exercise.name}</h3>
