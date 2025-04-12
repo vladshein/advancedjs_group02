@@ -38,8 +38,10 @@ async function handlePageClick(event) {
 
     // пагінація
     renderPagination(
+        refs.exercisePageWrapper,
         queryParams.page,
-        queryParams.maxPage
+        queryParams.maxPage,
+        handlePageClick,
     );
 
   } catch (err) {
@@ -94,10 +96,12 @@ async function handleSearch(event) {
     }
 
     // тут має бути пагінація
-    renderPagination(
-        queryParams.page,
-        queryParams.maxPage
-    );
+      renderPagination(
+          refs.exercisePageWrapper,
+          queryParams.page,
+          queryParams.maxPage,
+          handlePageClick,
+      );
 
   } catch (err) {
     // refs.loader.classList.remove(ACTIVE_CLASS);
@@ -158,10 +162,12 @@ async function handleCategoryClick(event) {
     }
 
     // тут має бути пагінація
-    renderPagination(
-        queryParams.page,
-        queryParams.maxPage
-    );
+      renderPagination(
+          refs.exercisePageWrapper,
+          queryParams.page,
+          queryParams.maxPage,
+          handlePageClick,
+      );
 
   } catch (err) {
     // refs.loader.classList.remove(ACTIVE_CLASS);

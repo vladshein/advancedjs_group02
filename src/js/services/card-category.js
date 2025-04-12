@@ -1,11 +1,8 @@
 import { showErrorToast } from '../utils/utils.js';
 import { filtersService } from './services.js';
 import { renderPagination } from '../template/paginationMarkup.js';
-import { handleCardPageClick } from '../handlers/category-card_handler.js';
 import { refs } from '../utils/refs.js';
 async function loadCategories(page = 1) {
-  const paginationContainer = document.querySelector('.category-page-wrapper');
-
   const filterRequest = filtersService.getFilterQuery();
   const limit = window.innerWidth < 768 ? 9 : 12;
 
@@ -40,10 +37,10 @@ async function loadCategories(page = 1) {
       refs.categories.appendChild(categoryCard);
     });
 
-    paginationContainer.innerHTML = '';
+    refs.categoriesWrap.innerHTML = '';
     if (filteredCategories.totalPages > 1) {
       renderPagination(
-        paginationContainer,
+        refs.categoriesWrap,
         page,
         filteredCategories.totalPages,
         handleCardPageClick
@@ -55,5 +52,11 @@ async function loadCategories(page = 1) {
     );
   }
 }
+
+function handleCardPageClick(event) {
+  const page = Number(event.target.textContent);
+  loadCategories(page);
+}
+
 loadCategories();
 export { loadCategories };
