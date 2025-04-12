@@ -1,9 +1,11 @@
+import iconsPath from '../../images/icons.svg';
+
 function renderGiveRatingModal(id) {
   return `<div class="container">
     <form data-id=${id} class="rating-modal-form">
       <button class="close-modal-btn" type="button">
         <svg class="close-modal-icon">
-          <use href="./images/icons.svg#close"></use>
+          <use href="${iconsPath}#close"></use>
         </svg>
       </button>
       <h2 class="rating-modal-title">Rating</h2>
@@ -12,31 +14,31 @@ function renderGiveRatingModal(id) {
         <input type="radio" id="star-1" name="rating" value="1"/>
         <label for="star-1">
           <svg class="rating-modal-rating-icon">
-            <use href="./images/icons.svg#star"></use>
+            <use href="${iconsPath}#star"></use>
           </svg>
         </label>
         <input type="radio" id="star-2" name="rating" value="2" />
         <label for="star-2">
           <svg class="rating-modal-rating-icon">
-            <use href="./images/icons.svg#star"></use>
+            <use href="${iconsPath}#star"></use>
           </svg>
         </label>
         <input type="radio" id="star-3" name="rating" value="3" />
         <label for="star-3">
           <svg class="rating-modal-rating-icon">
-            <use href="./images/icons.svg#star"></use>
+            <use href="${iconsPath}#star"></use>
           </svg>
         </label>
         <input type="radio" id="star-4" name="rating" value="4" />
         <label for="star-4">
           <svg class="rating-modal-rating-icon">
-            <use href="./images/icons.svg#star"></use>
+            <use href="${iconsPath}#star"></use>
           </svg>
         </label>
         <input type="radio" id="star-5" name="rating" value="5" />
         <label for="star-5">
           <svg class="rating-modal-rating-icon">
-            <use href="./images/icons.svg#star"></use>
+            <use href="${iconsPath}#star"></use>
           </svg>
         </label>
       </div>
