@@ -2,6 +2,7 @@
    Desktop Styles (>=1440px)
    ------------------------------- */
 .categories-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px 15px;
@@ -108,7 +109,7 @@
   .categories-grid {
     /* Using your pre-defined tablet sizes */
     width: 705px;
-    height: 992px;
+    height: auto;
     grid-template-columns: repeat(3, 1fr);
     /* Keep three columns */
     margin: 32px auto 0;
