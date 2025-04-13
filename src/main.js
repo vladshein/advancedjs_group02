@@ -7,7 +7,10 @@ import {
 
 import { handleRenderQuote } from './js/partials_js/quote';
 import { onFilterBtnClick } from './js/partials_js/filter';
-import { handleSubscription } from './js/partials_js/subscription';
+import {
+  handleSubscription,
+  setFooterYear,
+} from './js/partials_js/subscription';
 import { loadCategories } from './js/partials_js/card-category';
 import {
   setupModalsListeners,
@@ -16,17 +19,31 @@ import {
 } from './js/listeners/modals-listeners';
 import { scrollUp } from './js/partials_js/scroll-up';
 
-refs.searchForm.addEventListener('submit', handleSearch);
+loadCategories();
 handleRenderQuote();
+refs.searchForm.addEventListener('submit', handleSearch);
 refs.filterBtnsList.addEventListener('click', onFilterBtnClick);
 refs.footerForm.addEventListener('submit', handleSubscription);
 refs.categories.addEventListener('click', handleCategoryClick);
 
-loadCategories();
+setFooterYear();
 
 document.addEventListener('DOMContentLoaded', () => {
   setupModalsListeners();
   setupOpenExerciseModalLister();
   setupGiveRatingListener();
-  scrollUp();
+});
+scrollUp();
+// Close modals on ESC
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    if (refs.exerciseModal.classList.contains('is-open')) {
+      refs.exerciseModal.classList.remove('is-open');
+    }
+
+    if (refs.giveRatingModal.classList.contains('is-open')) {
+      refs.giveRatingModal.classList.remove('is-open');
+      refs.exerciseModal.classList.add('is-open');
+    }
+  }
 });

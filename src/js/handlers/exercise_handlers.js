@@ -13,9 +13,8 @@ async function handlePageClick(event) {
   refs.exercisePageWrapper.innerHTML = '';
   refs.exercises.innerHTML = '';
 
-  // refs.loader.classList.add(ACTIVE_CLASS);
   try {
-    // refs.loader.classList.remove(ACTIVE_CLASS);
+    refs.exercises.innerHTML = `<div class="loader"></div>`;
     const exercises = await exerciseService.getExercisesWithParams(queryParams);
     queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
     refs.exercises.innerHTML = exerciseCreateMarkup(exercises.results);
@@ -30,16 +29,10 @@ async function handlePageClick(event) {
       refs.exercisePageWrapper,
       queryParams.page,
       queryParams.maxPage,
-      handlePageClick,
+      handlePageClick
     );
-
   } catch (err) {
-    // refs.loader.classList.remove(ACTIVE_CLASS);
-    showErrorToast(
-      'Failed to load exercises. Please try again later.'
-    );
-  } finally {
-    // refs.loader.classList.remove(ACTIVE_CLASS);
+    showErrorToast('Failed to load exercises. Please try again later.');
   }
 }
 
@@ -49,10 +42,11 @@ async function handleSearch(event) {
   const form = event.currentTarget;
   const userQuery = form.elements.query.value.trim();
 
-  if (userQuery === '') {
-    showErrorToast('Please entered your request');
-    return;
-  }
+  // if (userQuery === '') {
+  //   showErrorToast('Please entered your request');
+  //   // return;
+  // }
+  
   // скидання попередніх станів перед повторним запитом
   refs.exercisePageWrapper.innerHTML = '';
   refs.exercises.innerHTML = '';
@@ -61,11 +55,10 @@ async function handleSearch(event) {
   queryParams.limit = window.innerWidth >= 768 ? 10 : 8;
   queryParams.keyword = userQuery;
 
-  // refs.loader.classList.add(ACTIVE_CLASS);
-  
   try {
+    refs.exercises.innerHTML = `<div class="loader"></div>`;
+
     const exercises = await exerciseService.getExercisesWithParams(queryParams);
-    // refs.loader.classList.remove(ACTIVE_CLASS);
     queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
 
     if (exercises.results.length === 0) {
@@ -83,15 +76,11 @@ async function handleSearch(event) {
       refs.exercisePageWrapper,
       queryParams.page,
       queryParams.maxPage,
-      handlePageClick,
+      handlePageClick
     );
-
   } catch (err) {
-    showErrorToast(
-      'Failed to load exercises. Please try again later.'
-    );
+    showErrorToast('Failed to load exercises. Please try again later.');
   } finally {
-    // refs.loader.classList.remove(ACTIVE_CLASS);
     form.reset();
   }
 }
@@ -107,21 +96,25 @@ async function handleCategoryClick(event) {
   refs.searchForm.classList.add('active-search-form');
   refs.cardContainer.classList.add('hidden');
   refs.exerciseContainer.classList.remove('hidden');
-  // refs.loader.classList.add(ACTIVE_CLASS);
 
   queryParams.page = 1;
   queryParams.keyword = '';
   queryParams.limit = window.innerWidth >= 768 ? 10 : 8;
-  queryParams.category_name = event.target.querySelector('.category-name').textContent;
-  queryParams.category_type = category[event.target.querySelector('.category-type').textContent.replace(/\s/g, '')];
+  queryParams.category_name =
+    event.target.querySelector('.category-name').textContent;
+  queryParams.category_type =
+    category[
+      event.target
+        .querySelector('.category-type')
+        .textContent.replace(/\s/g, '')
+    ];
 
   refs.exercisesHeader.innerHTML = `Exercises / <span class="exercise-header-category">${queryParams.category_name}</span>`;
-  queryParams.category_name = queryParams.category_name.toLowerCase()
+  queryParams.category_name = queryParams.category_name.toLowerCase();
 
   try {
-    
+    refs.exercises.innerHTML = `<div class="loader"></div>`;
     const exercises = await exerciseService.getExercisesWithParams(queryParams);
-    // refs.loader.classList.remove(ACTIVE_CLASS);
     queryParams.maxPage = exercises.totalPages; // зберігаємо номер останньої сторінки в пагінації
 
     if (exercises.results.length === 0) {
@@ -140,18 +133,12 @@ async function handleCategoryClick(event) {
       refs.exercisePageWrapper,
       queryParams.page,
       queryParams.maxPage,
-      handlePageClick,
+      handlePageClick
     );
-
   } catch (err) {
     // refs.loader.classList.remove(ACTIVE_CLASS);
-    showErrorToast(
-      'Failed to load exercises. Please try again later.'
-    );
-  } finally {
-    // refs.loader.classList.remove(ACTIVE_CLASS);
+    showErrorToast('Failed to load exercises. Please try again later.');
   }
 }
-
 
 export { handleSearch, handlePageClick, handleCategoryClick };
