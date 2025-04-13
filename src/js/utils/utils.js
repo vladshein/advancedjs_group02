@@ -40,4 +40,11 @@ function formValidation(ratingSelected, email, comment) {
   return true;
 }
 
-export { showErrorToast, showSuccessToast, formValidation };
+function shortenText(text, maxLength) {
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength-1) + '...';
+  }
+  return text;
+}
+
+export { showErrorToast, showSuccessToast, formValidation, shortenText };
