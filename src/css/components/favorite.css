@@ -31,7 +31,7 @@
     .favorite_container-flex { 
         flex-direction: row;
         justify-content: flex-start;    
-        gap: 64px;
+        gap: 32px;
     }
 }
 
