@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
 import { ExerciseService } from '../services/exercises.js';
 import { exerciseCreateMarkup } from '../template/exercisesMarkup.js';
 
+function getSafeElement(selector, errorMessage = '') {
+    const element = document.querySelector(selector);
+    if (!element) {
+        console.error(`Element not found: ${selector}`, errorMessage);
+        return null;
+    }
+    return element;
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const exerciseList = document.querySelector('.favorite-exercise-list');
     const exerciseContainer = document.querySelector('.exercise-container');
