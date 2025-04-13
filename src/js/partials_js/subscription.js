@@ -13,4 +13,9 @@ async function handleSubscription(event) {
   }
 }
 
-export { handleSubscription };
+function setFooterYear() {
+  const year = new Date().getFullYear();
+  refs.footerYear.textContent = `@${year}`;
+}
+
+export { handleSubscription, setFooterYear };
