@@ -49,10 +49,11 @@ async function handleSearch(event) {
   const form = event.currentTarget;
   const userQuery = form.elements.query.value.trim();
 
-  if (userQuery === '') {
-    showErrorToast('Please entered your request');
-    // return;
-  }
+  // if (userQuery === '') {
+  //   showErrorToast('Please entered your request');
+  //   // return;
+  // }
+  
   // скидання попередніх станів перед повторним запитом
   refs.exercisePageWrapper.innerHTML = '';
   refs.exercises.innerHTML = '';
