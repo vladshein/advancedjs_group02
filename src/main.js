@@ -28,3 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
   setupOpenExerciseModalLister();
   setupGiveRatingListener();
 });
+
+// Close modals on ESC
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    if (refs.exerciseModal.classList.contains('is-open')) {
+      refs.exerciseModal.classList.remove('is-open');
+    }
+
+    if (refs.giveRatingModal.classList.contains('is-open')) {
+      refs.giveRatingModal.classList.remove('is-open');
+      refs.exerciseModal.classList.add('is-open');
+    }
+  }
+});
