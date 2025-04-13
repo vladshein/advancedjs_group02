@@ -14,6 +14,7 @@ import {
   setupOpenExerciseModalLister,
   setupGiveRatingListener,
 } from './js/listeners/modals-listeners';
+import { scrollUp } from './js/partials_js/scroll-up';
 
 refs.searchForm.addEventListener('submit', handleSearch);
 handleRenderQuote();
@@ -27,4 +28,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupModalsListeners();
   setupOpenExerciseModalLister();
   setupGiveRatingListener();
+  scrollUp();
 });
