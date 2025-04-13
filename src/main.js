@@ -17,6 +17,7 @@ import {
   setupOpenExerciseModalLister,
   setupGiveRatingListener,
 } from './js/listeners/modals-listeners';
+import { scrollUp } from './js/partials_js/scroll-up';
 
 loadCategories();
 handleRenderQuote();
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupOpenExerciseModalLister();
   setupGiveRatingListener();
 });
-
+scrollUp();
 // Close modals on ESC
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {

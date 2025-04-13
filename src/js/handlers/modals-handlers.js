@@ -2,6 +2,7 @@ import { renderExerciseModal } from '../partials_js/exercise-modal.js';
 import { refs } from '../utils/refs.js';
 import { showErrorToast, showSuccessToast } from '../utils/utils.js';
 import { exerciseService } from '../services/services.js';
+import iconsPath from '../../images/icons.svg';
 
 async function handleOpenExerciseModal(id) {
   try {
@@ -23,13 +24,13 @@ function updateButtonsBlock(id) {
     ? `<button id="remove-from-favorites" class="btn btn-primary">
          Remove favorite
          <svg class="exercise-modal-btn-icon">
-           <use href="./images/icons.svg#trash"></use>
+           <use href="${iconsPath}#trash"></use>
          </svg>
        </button>`
     : `<button id="add-to-favorites" class="btn btn-primary">
          Add to favorites
          <svg class="exercise-modal-btn-icon">
-           <use href="./images/icons.svg#heart"></use>
+           <use href="${iconsPath}#heart"></use>
          </svg>
        </button>`;
 
