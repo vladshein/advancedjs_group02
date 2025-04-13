@@ -8,15 +8,18 @@ import {
 } from '../listeners/modals-listeners.js';
 import { setupDeleteFavoriteCardListener } from '../listeners/favorites-listeners.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+if (!window.quoteRendered) {
   handleRenderQuote();
-  setupModalsListeners();
-  setupOpenExerciseModalLister();
-  setupGiveRatingListener();
+  window.quoteRendered = true;
+}
 
+document.addEventListener('DOMContentLoaded', () => {
   // Initiate only on favorites page
   if (window.location.pathname.includes('favorite.html')) {
     renderFavoritesPage();
+    setupModalsListeners();
+    setupOpenExerciseModalLister();
+    setupGiveRatingListener();
   }
 });
 

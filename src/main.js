@@ -20,7 +20,11 @@ import {
 import { scrollUp } from './js/partials_js/scroll-up';
 
 loadCategories();
-handleRenderQuote();
+if (!window.quoteRendered) {
+  handleRenderQuote();
+  window.quoteRendered = true;
+}
+
 refs.searchForm.addEventListener('submit', handleSearch);
 refs.filterBtnsList.addEventListener('click', onFilterBtnClick);
 refs.footerForm.addEventListener('submit', handleSubscription);
