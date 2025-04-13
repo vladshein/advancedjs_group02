@@ -10,7 +10,7 @@ import { ExerciseService } from '../services/exercises.js';
 import { exerciseCreateMarkup } from '../template/exercisesMarkup.js';
 
 document.addEventListener('DOMContentLoaded', function() {
-    const exerciseList = document.querySelector('.exercise-list');
+    const exerciseList = document.querySelector('.favorite-exercise-list');
     const exerciseContainer = document.querySelector('.exercise-container');
     const notFoundContainer = document.querySelector('.favorite_not_found_containers');
     const paginationWrapper = document.querySelector('.exercise-page-wrapper');
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         notFoundContainer.style.display = 'none';
         
         // Відображаємо список вправ
-        exerciseList.innerHTML = exerciseCreateMarkup(exercises);
+        exerciseList.innerHTML = exerciseCreateMarkup(exercises, true);
         
         // Тут можна додати логіку пагінації, якщо потрібно
         paginationWrapper.innerHTML = ''; // Очищаємо пагінацію
