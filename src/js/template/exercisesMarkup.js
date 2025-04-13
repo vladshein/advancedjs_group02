@@ -1,22 +1,22 @@
 import iconsPath from '../../images/icons.svg';
 import { shortenText, caloriesPerTime } from '../utils/utils';
 
-function exerciseCreateMarkup(exercises) {
+function exerciseCreateMarkup(exercises, isFavorite = false) {
   return exercises
     .map(
       exercise => `<li class="exercise-item" data-id="${exercise._id}">
         <div class="exercise-header">
           <p class="exercise-header-badge">WORKOUT</p>
           <div class="exercise-header-rating">
-            <p>${exercise.rating}</p>
+            <p>${isFavorite ? "" : exercise.rating}</p>
             <svg
-              class="exercise-rating-icon"
+              class="${isFavorite ? "favorite-exercise-rating-icon" : "exercise-rating-icon"}"
               width="18"
               height="18"
               viewBox="0 0 18 18"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <use href="${iconsPath}#star"></use>
+              <use href="${iconsPath}#${isFavorite ? "trash" : "star"}"></use>
             </svg>
           </div>
           <button class="exercise-header-button" type="button">
