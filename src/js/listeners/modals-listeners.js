@@ -10,6 +10,7 @@ import {
   handleToggleFavorite,
   handleOpenExerciseModal,
 } from '../handlers/modals-handlers.js';
+import { renderFavoritesPage } from '../partials_js/favorites.js';
 
 function setupModalsListeners() {
   document.addEventListener('click', event => {
@@ -28,7 +29,15 @@ function setupModalsListeners() {
         event.target.closest('#remove-from-favorites')
       ) {
         const id = event.target.closest('.exercise-modal-card').dataset.id;
-        handleToggleFavorite(id);
+
+        handleToggleFavorite(id, () => {
+          // Update favorites page if it's open
+          if (window.location.pathname.includes('favorite.html')) {
+            renderFavoritesPage();
+          } else {
+            return;
+          }
+        });
       }
 
       // Open Give rating modal
