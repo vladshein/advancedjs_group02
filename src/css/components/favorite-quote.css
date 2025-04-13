@@ -60,13 +60,6 @@
     fill: rgb(244, 244, 244);
 }
 
-@media only screen and (min-width: 768px) {
-    .favorite_quote-icon {
-        width: 24px;
-        height: 24px;
-    }
-}
-
 .favorite_quote-icon-wrap-dark {
     background-color: rgb(36, 36, 36);
 }
@@ -125,7 +118,6 @@
 }
 
 .favorite_quote-card-light {
-
     background-color: rgb(255, 255, 255);
     color: #242424;
 }
@@ -195,6 +187,53 @@
 
 .favorite_110_min_card {
     background: var(--cl-white);
-    min-width: 335px;
-    padding: 24px 0 20px 20px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    width: 335px;
+    padding: 20px 0 20px 20px;
+}
+
+@media (min-width: 768px) {
+    .favorite_110_min_card{
+        width: 344px;
+        padding: 25px 0 25px 25px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .favorite_110_min_card{
+        width: 239px;
+    }
+}
+
+.sports-link {
+    margin-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+    .sports-link {
+        margin-bottom: 15px;
+    }
+}
+
+.favorite_quote-header {
+    margin-bottom: 19px;
+}
+
+@media (min-width: 768px) {
+    .favorite_quote-header {
+        margin-bottom: 6px;
+    }
+}
+
+.quote-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.quote-text {
+    min-height: 104px;
+    margin-bottom: 16px;
 }

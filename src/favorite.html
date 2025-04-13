@@ -16,22 +16,31 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
       rel="stylesheet"
     />
+    <!--IziToast CSS-->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" /> -->
     <!-- Common styles -->
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/components/favorite.css" />
-    <link rel="stylesheet" href="./css/components/favorite_quote.css" />
+    <link rel="stylesheet" href="./css/components/favorite-quote.css" />
+
     <title>Favorites</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.svg" type="image/svg+xml" />
 </head>
 <body>
+    <!-- Loads the specified .html file -->
     <load src="./partials/header.html" />    
 
-    <load src="./partials/favorite_componets.html" /> 
+    <load src="./partials/favorite-componets.html" /> 
 
     <load src="./partials/footer.html" />
 
-    <script type="module" src="./main.js"></script>
+    <!-- mobile menu -->
+    <load src="./partials/mobile_menu.html" />
+
+    <!-- <script type="module" src="./main.js"></script> -->
+    <script type="module" src="./js/partials_js/favorites.js"></script>
+
 </body>
 </html>

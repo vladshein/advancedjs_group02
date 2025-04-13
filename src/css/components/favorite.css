@@ -30,8 +30,8 @@
 @media only screen and (min-width: 1440px) {
     .favorite_container-flex { 
         flex-direction: row;
-        justify-content: center;    
-        gap: 64px;
+        justify-content: flex-start;    
+        gap: 32px;
     }
 }
 
@@ -76,7 +76,13 @@
     }
 }
 
+.favorite_not_found_containers {
+    background-color: rgb(255, 255, 255); 
+    padding: 20px 8px 46px 9px;
+}
+
 .favorite_not_found {
+    display: none;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
@@ -87,7 +93,7 @@
 
 @media only screen and (min-width: 768px) {
     .favorite_not_found { 
-        background: var(--cl-white);       
+             
         min-width: 554px;
     }
 }
