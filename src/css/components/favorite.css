@@ -30,7 +30,7 @@
 @media only screen and (min-width: 1440px) {
     .favorite_container-flex { 
         flex-direction: row;
-        justify-content: center;    
+        justify-content: flex-start;    
         gap: 64px;
     }
 }
@@ -76,6 +76,11 @@
     }
 }
 
+.favorite_not_found_containers {
+    background-color: rgb(255, 255, 255); 
+    padding: 20px 8px 46px 9px;
+}
+
 .favorite_not_found {
     display: none;
     font-weight: 400;
@@ -88,13 +93,7 @@
 
 @media only screen and (min-width: 768px) {
     .favorite_not_found { 
-        background: var(--cl-white);       
+             
         min-width: 554px;
     }
-}
-
-.favorite_exercises {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
