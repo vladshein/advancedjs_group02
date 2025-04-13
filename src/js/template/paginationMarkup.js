@@ -40,7 +40,6 @@ function renderPagination(
   for (let i = startPage; i <= endPage; i++) {
     paginationWrapper.appendChild(createPageButton(i));
   }
-  console.log(currentPage, totalPages);
   // Кнопка "→"
   // if (currentPage < totalPages) {
   //   const next = document.createElement('button');
