@@ -15,6 +15,7 @@ const refs = {
   giveRatingModal: document.querySelector('#give-rating-modal'),
   ratingBlock: document.querySelector('.rating-modal-rating-block'),
   ratingDisplay: document.querySelector('.rating-modal-rating'),
+  scrollUp: document.querySelector('.scroll-to-top'),
   footerYear: document.querySelector('.footer-year'),
 };
 export { refs };
