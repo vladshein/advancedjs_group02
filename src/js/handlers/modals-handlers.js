@@ -5,8 +5,9 @@ import { exerciseService } from '../services/services.js';
 
 async function handleOpenExerciseModal(id) {
   try {
-    const exercise = await exerciseService.getExerciseById(id);
     refs.exerciseModal.classList.add('is-open');
+    refs.exerciseModal.innerHTML = `<div class="loader"></div>`;
+    const exercise = await exerciseService.getExerciseById(id);
 
     const modal = renderExerciseModal(exercise);
     refs.exerciseModal.innerHTML = modal;
