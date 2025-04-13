@@ -47,4 +47,8 @@ function shortenText(text, maxLength) {
   return text;
 }
 
-export { showErrorToast, showSuccessToast, formValidation, shortenText };
+function caloriesPerTime(burnedCalories, time) {
+  return `${burnedCalories} / ${time} min`; 
+}
+
+export { showErrorToast, showSuccessToast, formValidation, shortenText, caloriesPerTime };

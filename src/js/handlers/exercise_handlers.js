@@ -51,7 +51,7 @@ async function handleSearch(event) {
 
   if (userQuery === '') {
     showErrorToast('Please entered your request');
-    return;
+    // return;
   }
   // скидання попередніх станів перед повторним запитом
   refs.exercisePageWrapper.innerHTML = '';

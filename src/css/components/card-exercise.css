@@ -16,7 +16,7 @@
     row-gap: 32px;
     column-gap: 16px;
     margin-bottom: 32px;
-    width: 704px;
+    width: 705px;
   }
 }
 
@@ -44,7 +44,7 @@
 
 @media only screen and (min-width: 1440px) {
   .exercise-list {
-    width: 897px;
+    width: 900px;
   }
 }
 
