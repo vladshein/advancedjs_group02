@@ -7,27 +7,30 @@ import {
 } from '../utils/utils.js';
 import { exerciseService } from '../services/services.js';
 import {
-  handleAddFavorite,
+  handleToggleFavorite,
   handleOpenExerciseModal,
 } from '../handlers/modals-handlers.js';
 
 function setupModalsListeners() {
   document.addEventListener('click', event => {
-    if (refs.exerciseModal || refs.giveRatingModal) {
-      // Close modals
+    if (refs.exerciseModal.classList.contains('is-open')) {
+      // Close modal
       if (
         event.target === refs.exerciseModal ||
-        event.target === refs.giveRatingModal ||
         event.target.closest('.close-modal-btn')
       ) {
         refs.exerciseModal.classList.remove('is-open');
-        refs.giveRatingModal.classList.remove('is-open');
       }
-      // Add to favorite
-      if (event.target.closest('#add-to-favorites')) {
+
+      // Toggle favorites
+      if (
+        event.target.closest('#add-to-favorites') ||
+        event.target.closest('#remove-from-favorites')
+      ) {
         const id = event.target.closest('.exercise-modal-card').dataset.id;
-        handleAddFavorite(id);
+        handleToggleFavorite(id);
       }
+
       // Open Give rating modal
       if (event.target.closest('#give-rating')) {
         refs.exerciseModal.classList.remove('is-open');
@@ -41,6 +44,17 @@ function setupModalsListeners() {
         refs.ratingBlock = document.querySelector('.rating-modal-rating-block');
         refs.ratingDisplay = document.querySelector('.rating-modal-rating');
         initializeRatingBlockListener();
+      }
+    }
+
+    if (refs.giveRatingModal.classList.contains('is-open')) {
+      // Close modal
+      if (
+        event.target === refs.giveRatingModal ||
+        event.target.closest('.close-modal-btn')
+      ) {
+        refs.giveRatingModal.classList.remove('is-open');
+        refs.exerciseModal.classList.add('is-open');
       }
     }
   });
