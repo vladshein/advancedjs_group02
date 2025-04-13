@@ -44,7 +44,7 @@ function updateButtonsBlock(id) {
   }
 }
 
-function handleToggleFavorite(id) {
+function handleToggleFavorite(id, onFavoritesUpdated) {
   try {
     const favorites = localStorage.getItem('favorites');
 
@@ -67,6 +67,7 @@ function handleToggleFavorite(id) {
     }
 
     updateButtonsBlock(id);
+    onFavoritesUpdated();
   } catch (error) {
     showErrorToast(error.message);
   }
