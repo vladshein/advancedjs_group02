@@ -27,9 +27,10 @@ class SubscriptionsService {
         email: this.email,
       });
     } catch (error) {
-      showErrorToast('Subscription failed.');
+      showErrorToast(error.response.data.message);
       return;
     }
+
     showSuccessToast('Email address added to subscriptions.');
   }
 }

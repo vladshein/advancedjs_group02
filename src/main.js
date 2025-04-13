@@ -7,7 +7,10 @@ import {
 
 import { handleRenderQuote } from './js/partials_js/quote';
 import { onFilterBtnClick } from './js/partials_js/filter';
-import { handleSubscription } from './js/partials_js/subscription';
+import {
+  handleSubscription,
+  setFooterYear,
+} from './js/partials_js/subscription';
 import { loadCategories } from './js/partials_js/card-category';
 import {
   setupModalsListeners,
@@ -22,6 +25,7 @@ refs.footerForm.addEventListener('submit', handleSubscription);
 refs.categories.addEventListener('click', handleCategoryClick);
 
 loadCategories();
+setFooterYear();
 
 document.addEventListener('DOMContentLoaded', () => {
   setupModalsListeners();
