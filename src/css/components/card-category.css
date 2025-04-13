@@ -2,6 +2,7 @@
    Desktop Styles (>=1440px)
    ------------------------------- */
 .categories-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px 15px;

@@ -15,13 +15,12 @@ import {
   setupGiveRatingListener,
 } from './js/listeners/modals-listeners';
 
-refs.searchForm.addEventListener('submit', handleSearch);
+loadCategories();
 handleRenderQuote();
+refs.searchForm.addEventListener('submit', handleSearch);
 refs.filterBtnsList.addEventListener('click', onFilterBtnClick);
 refs.footerForm.addEventListener('submit', handleSubscription);
 refs.categories.addEventListener('click', handleCategoryClick);
-
-loadCategories();
 
 document.addEventListener('DOMContentLoaded', () => {
   setupModalsListeners();
