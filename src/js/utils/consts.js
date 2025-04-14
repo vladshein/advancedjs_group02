@@ -14,6 +14,9 @@ const category = {
     Bodyparts: 'bodypart',
 }
 
+const favoriteExercises = {
+};
+
 const notFoundText = "Oops! We couldn't find any exercises matching your search. Try another keyword and keep moving! 💪";
 
-export { queryParams, category, notFoundText };
+export { queryParams, category, favoriteExercises, notFoundText };
