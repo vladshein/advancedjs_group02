@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../utils/consts.js';
+import { showErrorToast } from '../utils/utils.js';
 
 class ExerciseService {
   async getExercises() {
@@ -12,7 +13,7 @@ class ExerciseService {
       const { data } = await axios.get(`${API_URL}/exercises/${id}`);
       return data;
     } catch (error) {
-      console.error('Error fetching exercise by ID:', error);
+      showErrorToast(`Error fetching exercise by ID: ${error}`);
       throw error;
     }
   }

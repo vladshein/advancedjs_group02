@@ -9,6 +9,7 @@ import {
 import { setupDeleteFavoriteCardListener } from '../listeners/favorites-listeners.js';
 import { renderPagination } from '../template/paginationMarkup.js';
 import { favoriteExercises } from '../utils/consts.js';
+import { showErrorToast } from '../utils/utils.js';
 
 if (!window.quoteRendered) {
   handleRenderQuote();
@@ -70,7 +71,7 @@ function renderFavoritesPage() {
     // Отримуємо повні дані про вправи
     const exercisesPromises = favoriteExerciseIds.map(id => {
       return exerciseService.getExerciseById(id).catch(error => {
-        console.error('Error loading exercise ' + id + ':', error);
+        showErrorToast(`Error loading exercise ${id}: ${error}`);
         return null;
       });
     });
@@ -90,7 +91,7 @@ function renderFavoritesPage() {
         }
       })
       .catch(error => {
-        console.error('Error loading favorites:', error);
+        showErrorToast(`Error loading favorites: ${error}`);
         showLoadError();
       });
   }
