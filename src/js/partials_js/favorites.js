@@ -7,6 +7,8 @@ import {
   setupGiveRatingListener,
 } from '../listeners/modals-listeners.js';
 import { setupDeleteFavoriteCardListener } from '../listeners/favorites-listeners.js';
+import { renderPagination } from '../template/paginationMarkup.js';
+import { favoriteExercises } from '../utils/consts.js';
 
 if (!window.quoteRendered) {
   handleRenderQuote();
@@ -80,7 +82,8 @@ function renderFavoritesPage() {
         });
 
         if (validExercises.length > 0) {
-          displayExercises(validExercises);
+          favoriteExercises.exercises = validExercises;
+          displayExercises();
           setupDeleteFavoriteCardListener();
         } else {
           showNoExercisesMessage();
@@ -92,16 +95,29 @@ function renderFavoritesPage() {
       });
   }
 }
-
-function displayExercises(exercises) {
+function displayExercises(currentPage = 1) {
   // Ховаємо повідомлення про відсутність вправ
   notFoundContainer.style.display = 'none';
-
+  const itemsPerPage = window.innerWidth >= 768 ? 10 : 8;
   // Відображаємо список вправ
-  exerciseList.innerHTML = exerciseCreateMarkup(exercises, true);
+  if (window.innerWidth < 1440) {
+    exerciseList.innerHTML = exerciseCreateMarkup(favoriteExercises.exercises.slice((currentPage - 1) * itemsPerPage, itemsPerPage * currentPage), true);
+    paginationWrapper.innerHTML = ''; // Очищаємо пагінацію
+    const totalPages = Math.ceil(
+      favoriteExercises.exercises.length / itemsPerPage
+    );
+    if (totalPages > 1) {
 
-  // Тут можна додати логіку пагінації, якщо потрібно
-  paginationWrapper.innerHTML = ''; // Очищаємо пагінацію
+      renderPagination(
+        paginationWrapper,
+        currentPage,
+        totalPages,
+        handlePageClick
+      );
+    }
+    return;
+  }
+  exerciseList.innerHTML = exerciseCreateMarkup(favoriteExercises.exercises, true);
 }
 
 function showNoExercisesMessage() {
@@ -121,6 +137,12 @@ function showLoadError() {
   exerciseList.innerHTML =
     '<li class="error-msg">Failed to load favorites. Please try again.</li>';
   paginationWrapper.innerHTML = '';
+}
+
+function handlePageClick(event) {
+  const page = Number(event.target.textContent);
+  displayExercises(page)
+  setupDeleteFavoriteCardListener()
 }
 
 export { renderFavoritesPage };

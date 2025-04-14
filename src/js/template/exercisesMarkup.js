@@ -70,7 +70,7 @@ function exerciseCreateMarkup(exercises, isFavorite = false) {
             ${
               window.innerWidth < 1440
                 ? shortenText(exercise.bodyPart, 4)
-                : shortenText(exercise.bodyPart, 9)
+                : shortenText(exercise.bodyPart, 8)
             }
           </li>
           <li>
@@ -78,7 +78,7 @@ function exerciseCreateMarkup(exercises, isFavorite = false) {
             ${
               window.innerWidth < 1440
                 ? shortenText(exercise.target, 3)
-                : shortenText(exercise.target, 9)
+                : shortenText(exercise.target, 8)
             }
           </li>
         </ul>
