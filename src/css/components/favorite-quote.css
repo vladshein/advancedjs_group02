@@ -233,7 +233,7 @@
     align-items: flex-start;
 }
 
-.favorite-quote-wrap .quote-text {
-    min-height: 104px;
-    margin-bottom: 16px;
+.quote-text {
+    color: rgba(244, 244, 244, 0.6);
+    margin-bottom: 20px;
 }
