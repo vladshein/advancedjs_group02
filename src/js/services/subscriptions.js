@@ -9,11 +9,9 @@ class SubscriptionsService {
   }
 
   verifyData() {
-    console.log(this.email);
     const emailPattern = /^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
     if (!emailPattern.test(this.email)) {
-      console.log(this.email);
       // add iziToast error
       showErrorToast('Please enter a valid email address.');
       return false;
