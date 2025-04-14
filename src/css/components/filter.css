@@ -178,6 +178,8 @@
   display: block;
   margin: 0;
   padding: 0;
+  border: none;
+  background: transparent;
 }
 
 @media screen and (min-width: 768px) {
