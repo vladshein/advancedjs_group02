@@ -82,7 +82,6 @@
 }
 
 .favorite_not_found {
-  display: none;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -113,12 +112,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: start;
+    align-content: start;
     row-gap: 32px;
     column-gap: 16px;
     margin-bottom: 32px;
     width: 705px;
-    height: 487px;
+    height: 490px;
     overflow-y: auto;
   }
 }
@@ -126,6 +125,7 @@
 @media only screen and (min-width: 1440px) {
   .favorite-exercise-list {
     width: 850px;
+
   }
 }
 

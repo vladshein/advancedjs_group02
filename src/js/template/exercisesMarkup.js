@@ -50,7 +50,7 @@ function exerciseCreateMarkup(exercises, isFavorite = false) {
           <h3 class="exercise-title-text">${
             window.innerWidth < 1440
               ? shortenText(exercise.name, 25)
-              : exercise.name
+              : shortenText(exercise.name, 35)
           }</h3>
         </div>
         <ul class="exercise-footer">
@@ -70,7 +70,7 @@ function exerciseCreateMarkup(exercises, isFavorite = false) {
             ${
               window.innerWidth < 1440
                 ? shortenText(exercise.bodyPart, 4)
-                : exercise.bodyPart
+                : shortenText(exercise.bodyPart, 9)
             }
           </li>
           <li>
@@ -78,7 +78,7 @@ function exerciseCreateMarkup(exercises, isFavorite = false) {
             ${
               window.innerWidth < 1440
                 ? shortenText(exercise.target, 3)
-                : exercise.target
+                : shortenText(exercise.target, 9)
             }
           </li>
         </ul>
