@@ -18,7 +18,7 @@
 .favorite_container-flex {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -60,41 +60,43 @@
   }
 }
 
-.favorite_exercise_containers {
-  padding: 0 28px 46px 29px;
+.favorite_not_found_containers {
+  padding: 0px 28px 46px 29px;
 }
 
 @media only screen and (min-width: 768px) {
-  .favorite_exercise_containers {
-    padding: 132px 75px 187px 107px;
+  .favorite_not_found_containers{
+    padding: 68px 107px 187px 107px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .favorite_exercise_containers {
+  .favorite_not_found_containers {
     padding: 114px 180px 44px 180px;
   }
 }
 
-.favorite_not_found_containers {
-  background-color: rgb(255, 255, 255);
-  padding: 20px 8px 46px 9px;
+.favorite_not_found_containers-hidden {
+  display: none;
 }
 
 .favorite_not_found {
-  display: none;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0px;
   text-align: center;
-  min-width: 318px;
+  max-width: 318px;
 }
 
 @media only screen and (min-width: 768px) {
   .favorite_not_found {
-    min-width: 554px;
+    max-width: 554px;
   }
+}
+
+.favorite-exercise-wrapper {
+  display: none;
 }
 
 .favorite-exercise-list {
