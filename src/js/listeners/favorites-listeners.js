@@ -3,7 +3,6 @@ import { handleDeleteFromFavorites } from '../handlers/favorites-handlers.js';
 
 const setupDeleteFavoriteCardListener = () => {
   const deleteFavoriteCardButtons = document.querySelectorAll('.trash-can');
-  console.log(deleteFavoriteCardButtons);
 
   deleteFavoriteCardButtons.forEach(button => {
     button.addEventListener('click', async event => {
