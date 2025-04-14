@@ -40,7 +40,7 @@ document.addEventListener('keydown', event => {
 });
 
 const exerciseList = document.querySelector('.favorite-exercise-list');
-const exerciseContainer = document.querySelector('.exercise-container');
+const exerciseContainer = document.querySelector('.favorite-exercise-list');
 const notFoundContainer = document.querySelector(
   '.favorite_not_found_containers'
 );
@@ -51,9 +51,6 @@ function renderFavoritesPage() {
   const favoriteExerciseIds =
     JSON.parse(localStorage.getItem('favorites')) || [];
 
-  // Показуємо контейнер (прибираємо клас hidden)
-  exerciseContainer.classList.remove('hidden');
-
   if (favoriteExerciseIds.length > 0) {
     loadAndDisplayExercises();
   } else {
@@ -63,6 +60,8 @@ function renderFavoritesPage() {
   function loadAndDisplayExercises() {
     // Ховаємо повідомлення про відсутність вправ
     notFoundContainer.style.display = 'none';
+
+    exerciseContainer.style.display = 'flex';
 
     // Показуємо індикатор завантаження
     exerciseList.innerHTML =

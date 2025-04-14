@@ -235,5 +235,18 @@
 
 .quote-text {
     color: rgba(244, 244, 244, 0.6);
-    margin-bottom: 20px;
+    min-height: 104px;
+    /* margin-bottom: 20px; */
+}
+
+@media (min-width: 768px) {
+    .quote-text{
+        min-height: 78px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .quote-text{
+        min-height: 88px;
+    }
 }
